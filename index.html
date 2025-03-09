@@ -1,700 +1,1568 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>CSS</title><style>
-/* cspell:disable-file */
-/* webkit printing magic: print all background colors */
-html {
-	-webkit-print-color-adjust: exact;
-}
-* {
-	box-sizing: border-box;
-	-webkit-print-color-adjust: exact;
-}
-
-html,
-body {
-	margin: 0;
-	padding: 0;
-}
-@media only screen {
-	body {
-		margin: 2em auto;
-		max-width: 900px;
-		color: rgb(55, 53, 47);
-	}
-}
-
-body {
-	line-height: 1.5;
-	white-space: pre-wrap;
-}
-
-a,
-a.visited {
-	color: inherit;
-	text-decoration: underline;
-}
-
-.pdf-relative-link-path {
-	font-size: 80%;
-	color: #444;
-}
-
-h1,
-h2,
-h3 {
-	letter-spacing: -0.01em;
-	line-height: 1.2;
-	font-weight: 600;
-	margin-bottom: 0;
-}
-
-.page-title {
-	font-size: 2.5rem;
-	font-weight: 700;
-	margin-top: 0;
-	margin-bottom: 0.75em;
-}
-
-h1 {
-	font-size: 1.875rem;
-	margin-top: 1.875rem;
-}
-
-h2 {
-	font-size: 1.5rem;
-	margin-top: 1.5rem;
-}
-
-h3 {
-	font-size: 1.25rem;
-	margin-top: 1.25rem;
-}
-
-.source {
-	border: 1px solid #ddd;
-	border-radius: 3px;
-	padding: 1.5em;
-	word-break: break-all;
-}
-
-.callout {
-	border-radius: 3px;
-	padding: 1rem;
-}
-
-figure {
-	margin: 1.25em 0;
-	page-break-inside: avoid;
-}
-
-figcaption {
-	opacity: 0.5;
-	font-size: 85%;
-	margin-top: 0.5em;
-}
-
-mark {
-	background-color: transparent;
-}
-
-.indented {
-	padding-left: 1.5em;
-}
-
-hr {
-	background: transparent;
-	display: block;
-	width: 100%;
-	height: 1px;
-	visibility: visible;
-	border: none;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
-}
-
-img {
-	max-width: 100%;
-}
-
-@media only print {
-	img {
-		max-height: 100vh;
-		object-fit: contain;
-	}
-}
-
-@page {
-	margin: 1in;
-}
-
-.collection-content {
-	font-size: 0.875rem;
-}
-
-.column-list {
-	display: flex;
-	justify-content: space-between;
-}
-
-.column {
-	padding: 0 1em;
-}
-
-.column:first-child {
-	padding-left: 0;
-}
-
-.column:last-child {
-	padding-right: 0;
-}
-
-.table_of_contents-item {
-	display: block;
-	font-size: 0.875rem;
-	line-height: 1.3;
-	padding: 0.125rem;
-}
-
-.table_of_contents-indent-1 {
-	margin-left: 1.5rem;
-}
-
-.table_of_contents-indent-2 {
-	margin-left: 3rem;
-}
-
-.table_of_contents-indent-3 {
-	margin-left: 4.5rem;
-}
-
-.table_of_contents-link {
-	text-decoration: none;
-	opacity: 0.7;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
-}
-
-table,
-th,
-td {
-	border: 1px solid rgba(55, 53, 47, 0.09);
-	border-collapse: collapse;
-}
-
-table {
-	border-left: none;
-	border-right: none;
-}
-
-th,
-td {
-	font-weight: normal;
-	padding: 0.25em 0.5em;
-	line-height: 1.5;
-	min-height: 1.5em;
-	text-align: left;
-}
-
-th {
-	color: rgba(55, 53, 47, 0.6);
-}
-
-ol,
-ul {
-	margin: 0;
-	margin-block-start: 0.6em;
-	margin-block-end: 0.6em;
-}
-
-li > ol:first-child,
-li > ul:first-child {
-	margin-block-start: 0.6em;
-}
-
-ul > li {
-	list-style: disc;
-}
-
-ul.to-do-list {
-	padding-inline-start: 0;
-}
-
-ul.to-do-list > li {
-	list-style: none;
-}
-
-.to-do-children-checked {
-	text-decoration: line-through;
-	opacity: 0.375;
-}
-
-ul.toggle > li {
-	list-style: none;
-}
-
-ul {
-	padding-inline-start: 1.7em;
-}
-
-ul > li {
-	padding-left: 0.1em;
-}
-
-ol {
-	padding-inline-start: 1.6em;
-}
-
-ol > li {
-	padding-left: 0.2em;
-}
-
-.mono ol {
-	padding-inline-start: 2em;
-}
-
-.mono ol > li {
-	text-indent: -0.4em;
-}
-
-.toggle {
-	padding-inline-start: 0em;
-	list-style-type: none;
-}
-
-/* Indent toggle children */
-.toggle > li > details {
-	padding-left: 1.7em;
-}
-
-.toggle > li > details > summary {
-	margin-left: -1.1em;
-}
-
-.selected-value {
-	display: inline-block;
-	padding: 0 0.5em;
-	background: rgba(206, 205, 202, 0.5);
-	border-radius: 3px;
-	margin-right: 0.5em;
-	margin-top: 0.3em;
-	margin-bottom: 0.3em;
-	white-space: nowrap;
-}
-
-.collection-title {
-	display: inline-block;
-	margin-right: 1em;
-}
-
-.page-description {
-	margin-bottom: 2em;
-}
-
-.simple-table {
-	margin-top: 1em;
-	font-size: 0.875rem;
-	empty-cells: show;
-}
-.simple-table td {
-	height: 29px;
-	min-width: 120px;
-}
-
-.simple-table th {
-	height: 29px;
-	min-width: 120px;
-}
-
-.simple-table-header-color {
-	background: rgb(247, 246, 243);
-	color: black;
-}
-.simple-table-header {
-	font-weight: 500;
-}
-
-time {
-	opacity: 0.5;
-}
-
-.icon {
-	display: inline-block;
-	max-width: 1.2em;
-	max-height: 1.2em;
-	text-decoration: none;
-	vertical-align: text-bottom;
-	margin-right: 0.5em;
-}
-
-img.icon {
-	border-radius: 3px;
-}
-
-.user-icon {
-	width: 1.5em;
-	height: 1.5em;
-	border-radius: 100%;
-	margin-right: 0.5rem;
-}
-
-.user-icon-inner {
-	font-size: 0.8em;
-}
-
-.text-icon {
-	border: 1px solid #000;
-	text-align: center;
-}
-
-.page-cover-image {
-	display: block;
-	object-fit: cover;
-	width: 100%;
-	max-height: 30vh;
-}
-
-.page-header-icon {
-	font-size: 3rem;
-	margin-bottom: 1rem;
-}
-
-.page-header-icon-with-cover {
-	margin-top: -0.72em;
-	margin-left: 0.07em;
-}
-
-.page-header-icon img {
-	border-radius: 3px;
-}
-
-.link-to-page {
-	margin: 1em 0;
-	padding: 0;
-	border: none;
-	font-weight: 500;
-}
-
-p > .user {
-	opacity: 0.5;
-}
-
-td > .user,
-td > time {
-	white-space: nowrap;
-}
-
-input[type="checkbox"] {
-	transform: scale(1.5);
-	margin-right: 0.6em;
-	vertical-align: middle;
-}
-
-p {
-	margin-top: 0.5em;
-	margin-bottom: 0.5em;
-}
-
-.image {
-	border: none;
-	margin: 1.5em 0;
-	padding: 0;
-	border-radius: 0;
-	text-align: center;
-}
-
-.code,
-code {
-	background: rgba(135, 131, 120, 0.15);
-	border-radius: 3px;
-	padding: 0.2em 0.4em;
-	border-radius: 3px;
-	font-size: 85%;
-	tab-size: 2;
-}
-
-code {
-	color: #eb5757;
-}
-
-.code {
-	padding: 1.5em 1em;
-}
-
-.code-wrap {
-	white-space: pre-wrap;
-	word-break: break-all;
-}
-
-.code > code {
-	background: none;
-	padding: 0;
-	font-size: 100%;
-	color: inherit;
-}
-
-blockquote {
-	font-size: 1.25em;
-	margin: 1em 0;
-	padding-left: 1em;
-	border-left: 3px solid rgb(55, 53, 47);
-}
-
-.bookmark {
-	text-decoration: none;
-	max-height: 8em;
-	padding: 0;
-	display: flex;
-	width: 100%;
-	align-items: stretch;
-}
-
-.bookmark-title {
-	font-size: 0.85em;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	height: 1.75em;
-	white-space: nowrap;
-}
-
-.bookmark-text {
-	display: flex;
-	flex-direction: column;
-}
-
-.bookmark-info {
-	flex: 4 1 180px;
-	padding: 12px 14px 14px;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-}
-
-.bookmark-image {
-	width: 33%;
-	flex: 1 1 180px;
-	display: block;
-	position: relative;
-	object-fit: cover;
-	border-radius: 1px;
-}
-
-.bookmark-description {
-	color: rgba(55, 53, 47, 0.6);
-	font-size: 0.75em;
-	overflow: hidden;
-	max-height: 4.5em;
-	word-break: break-word;
-}
-
-.bookmark-href {
-	font-size: 0.75em;
-	margin-top: 0.25em;
-}
-
-.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
-.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
-.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
-.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
-.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
-.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
-.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
-.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
-.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
-.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
-.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
-.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
-.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
-.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
-.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
-.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
-.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
-.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
-.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
-.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
-.highlight-default {
-	color: rgba(55, 53, 47, 1);
-}
-.highlight-gray {
-	color: rgba(120, 119, 116, 1);
-	fill: rgba(120, 119, 116, 1);
-}
-.highlight-brown {
-	color: rgba(159, 107, 83, 1);
-	fill: rgba(159, 107, 83, 1);
-}
-.highlight-orange {
-	color: rgba(217, 115, 13, 1);
-	fill: rgba(217, 115, 13, 1);
-}
-.highlight-yellow {
-	color: rgba(203, 145, 47, 1);
-	fill: rgba(203, 145, 47, 1);
-}
-.highlight-teal {
-	color: rgba(68, 131, 97, 1);
-	fill: rgba(68, 131, 97, 1);
-}
-.highlight-blue {
-	color: rgba(51, 126, 169, 1);
-	fill: rgba(51, 126, 169, 1);
-}
-.highlight-purple {
-	color: rgba(144, 101, 176, 1);
-	fill: rgba(144, 101, 176, 1);
-}
-.highlight-pink {
-	color: rgba(193, 76, 138, 1);
-	fill: rgba(193, 76, 138, 1);
-}
-.highlight-red {
-	color: rgba(212, 76, 71, 1);
-	fill: rgba(212, 76, 71, 1);
-}
-.highlight-default_background {
-	color: rgba(55, 53, 47, 1);
-}
-.highlight-gray_background {
-	background: rgba(248, 248, 247, 1);
-}
-.highlight-brown_background {
-	background: rgba(244, 238, 238, 1);
-}
-.highlight-orange_background {
-	background: rgba(251, 236, 221, 1);
-}
-.highlight-yellow_background {
-	background: rgba(251, 243, 219, 1);
-}
-.highlight-teal_background {
-	background: rgba(237, 243, 236, 1);
-}
-.highlight-blue_background {
-	background: rgba(231, 243, 248, 1);
-}
-.highlight-purple_background {
-	background: rgba(248, 243, 252, 1);
-}
-.highlight-pink_background {
-	background: rgba(252, 241, 246, 1);
-}
-.highlight-red_background {
-	background: rgba(253, 235, 236, 1);
-}
-.block-color-default {
-	color: inherit;
-	fill: inherit;
-}
-.block-color-gray {
-	color: rgba(120, 119, 116, 1);
-	fill: rgba(120, 119, 116, 1);
-}
-.block-color-brown {
-	color: rgba(159, 107, 83, 1);
-	fill: rgba(159, 107, 83, 1);
-}
-.block-color-orange {
-	color: rgba(217, 115, 13, 1);
-	fill: rgba(217, 115, 13, 1);
-}
-.block-color-yellow {
-	color: rgba(203, 145, 47, 1);
-	fill: rgba(203, 145, 47, 1);
-}
-.block-color-teal {
-	color: rgba(68, 131, 97, 1);
-	fill: rgba(68, 131, 97, 1);
-}
-.block-color-blue {
-	color: rgba(51, 126, 169, 1);
-	fill: rgba(51, 126, 169, 1);
-}
-.block-color-purple {
-	color: rgba(144, 101, 176, 1);
-	fill: rgba(144, 101, 176, 1);
-}
-.block-color-pink {
-	color: rgba(193, 76, 138, 1);
-	fill: rgba(193, 76, 138, 1);
-}
-.block-color-red {
-	color: rgba(212, 76, 71, 1);
-	fill: rgba(212, 76, 71, 1);
-}
-.block-color-default_background {
-	color: inherit;
-	fill: inherit;
-}
-.block-color-gray_background {
-	background: rgba(248, 248, 247, 1);
-}
-.block-color-brown_background {
-	background: rgba(244, 238, 238, 1);
-}
-.block-color-orange_background {
-	background: rgba(251, 236, 221, 1);
-}
-.block-color-yellow_background {
-	background: rgba(251, 243, 219, 1);
-}
-.block-color-teal_background {
-	background: rgba(237, 243, 236, 1);
-}
-.block-color-blue_background {
-	background: rgba(231, 243, 248, 1);
-}
-.block-color-purple_background {
-	background: rgba(248, 243, 252, 1);
-}
-.block-color-pink_background {
-	background: rgba(252, 241, 246, 1);
-}
-.block-color-red_background {
-	background: rgba(253, 235, 236, 1);
-}
-.select-value-color-uiBlue { background-color: undefined; }
-.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
-.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
-.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
-.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
-.select-value-color-transparentGray { background-color: undefined; }
-.select-value-color-translucentGray { background-color: undefined; }
-.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
-.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
-.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
-.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
-.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
-.select-value-color-pageGlass { background-color: undefined; }
-.select-value-color-washGlass { background-color: undefined; }
-
-.checkbox {
-	display: inline-flex;
-	vertical-align: text-bottom;
-	width: 16;
-	height: 16;
-	background-size: 16px;
-	margin-left: 2px;
-	margin-right: 5px;
-}
-
-.checkbox-on {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
-}
-
-.checkbox-off {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
-}
-	
-</style></head><body><article id="82fa905e-4730-46d4-a9b8-9aaf6c5fc164" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1523437113738-bbd3cc89fb19?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">👨‍💻</span></div><h1 class="page-title">CSS</h1><p class="page-description"></p></header><div class="page-body"><figure id="17312a65-5f56-8063-9293-e7f330b0b55f" class="block-color-gray_background link-to-page"><a href="https://www.notion.so/HTML-17312a655f5680639293e7f330b0b55f?pvs=21"><span class="icon">👨‍💻</span>HTML</a></figure><ul id="17e12a65-5f56-8035-a9f7-c7fdfd0971cc" class="toggle"><li><details open=""><p id="3ae4c429-81e6-4d71-8601-328e34ed241a" class="">CSS = Cascading Style Sheet</p><ol type="1" id="d4abf64f-ab2b-4ceb-8a38-207b7d61e43a" class="numbered-list" start="1"><li>Lier la page HTML à la feuille CSS<p id="abdc7eb8-672f-490b-aa96-0cb5ea216a9e" class="">ajouter une balise &lt;link&gt; dans le &lt;head&gt;</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="17e12a65-5f56-8006-b667-f677dc014120" class="code"><code class="language-HTML">&lt;link rel=&quot;stylesheet&quot; href=&quot;styles.css&quot;&gt;</code></pre></li></ol><ol type="1" id="acce6ee5-1502-4cd1-b49f-d6e89abe2695" class="numbered-list" start="2"><li>Mettre en place le CSS<p id="f8469031-8e8e-4490-9700-8753dc1b2682" class="">Syntaxe générale</p></li></ol><p id="ccb825bf-4d2a-4011-96a4-66866b906dfa" class="">Le CSS se mets en place de la manière suivante :</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="a960ebf5-fadc-4dd1-a85f-5ada7c6ac5df" class="code"><code class="language-CSS">sélecteur {
-	propriété1: valeur1;
-	propriété2: valeur2;
-}</code></pre><p id="8340a63f-e1ad-4b12-bfb3-b5a49128eeba" class="">Le sélecteur est l’élément (= la balise) HTML sur lequel la déclaration va être appliquée</p><p id="8aa082c4-07b6-4b88-9b21-0387f4002404" class="">La déclaration est l’ensemble des propriétés appliquées au sélecteur. Les propriétés sont délimitées par un “;”</p><p id="30f1ba53-a568-4a93-858d-817585ab6df4" class="">Une propriété est l’élément sur lequel vous appliquer un style</p><p id="1629eba3-b9c3-41b0-98b1-757b51c62bf0" class="">La valeur est la manière dont vous allez styliser.</p><p id="f2110b01-5f62-4128-b916-cb7bc6a4da13" class="">Par exemple, pour modifier la couleur du texte de tous les paragraphes, la syntaxe CSS à respecter est la suivante :</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="c49154d0-f58b-40bf-9555-dcb72b8613f5" class="code"><code class="language-CSS">p {
-	color: #ffffff;
-}</code></pre><p id="44b5b86a-26f2-4ac8-af0c-cf87274f1db6" class="">p représente la balise paragraphe</p><p id="ec1875d4-7965-45ab-ad0a-0968e8992c82" class="">color représente la couleur de la police</p><p id="ec5a2835-1bbc-487e-b1ef-05c248cd9b4c" class="">#ffffff est le code de la couleur blanche</p><ul id="17aeea25-7bb6-41c5-97ff-50edd94b36fc" class="toggle"><li><details open="">
-
-}</code></pre></details></li></ul><p id="70ca153a-b0f7-4e43-886f-22d6ec37a134" class="">Liste des propriétés à connaître :</p><table id="880a1639-5edb-4537-b6c8-69c98ca96c75" class="simple-table"><thead class="simple-table-header"><tr id="a9007d99-512e-4c5c-8dd4-a00fec5c9b0c"><th id="xFFm" class="simple-table-header-color simple-table-header" style="width:531px">Propriété</th><th id="bz:x" class="simple-table-header-color simple-table-header" style="width:531px">Rôle</th></tr></thead><tbody><tr id="59c0ffbf-8fb9-4de8-a98c-298e564cdcf8"><td id="xFFm" class="" style="width:531px">color</td><td id="bz:x" class="" style="width:531px">Indiquer la couleur du texte</td></tr><tr id="54dee98e-85b1-4d1f-a850-11ad0090d603"><td id="xFFm" class="" style="width:531px">font-size</td><td id="bz:x" class="" style="width:531px">Taille du texte</td></tr><tr id="92b22f29-d7e1-4445-8e1e-bddfc01e9277"><td id="xFFm" class="" style="width:531px">font-family</td><td id="bz:x" class="" style="width:531px">La police de caractère</td></tr><tr id="4d35676e-22f1-4124-b5dd-16919ce01ea0"><td id="xFFm" class="" style="width:531px">font-weight</td><td id="bz:x" class="" style="width:531px">l’épaisseur de la police (normal ou gras =&gt; bold)</td></tr><tr id="cf846b94-0af5-499b-98d6-a3ba3c8a8169"><td id="xFFm" class="" style="width:531px">text-align</td><td id="bz:x" class="" style="width:531px">alignement du texte (à gauche, au centre, à droite, justifié)</td></tr><tr id="f91d6751-1a5e-4a7e-a96f-4ea12ebca488"><td id="xFFm" class="" style="width:531px">margin</td><td id="bz:x" class="" style="width:531px">détermine les marges extérieures</td></tr><tr id="d199a339-6be0-41a5-9850-a5fb4655bdd0"><td id="xFFm" class="" style="width:531px">padding</td><td id="bz:x" class="" style="width:531px">détermine les marges intérieures</td></tr><tr id="3c58d928-3470-4dfb-9a95-51df885927a7"><td id="xFFm" class="" style="width:531px">border</td><td id="bz:x" class="" style="width:531px">Crée une bordure autour de l’élément</td></tr><tr id="fdf1822f-22aa-4e4b-a0b7-3b5fb10175b0"><td id="xFFm" class="" style="width:531px">background-color</td><td id="bz:x" class="" style="width:531px">Fixe la couleur de l’arrière plan d’un élément</td></tr><tr id="50a06443-7fae-4b12-8be6-31c8d97635c6"><td id="xFFm" class="" style="width:531px">width</td><td id="bz:x" class="" style="width:531px">controle la largeur d’un élément</td></tr><tr id="0466be35-5dff-412c-b807-3b2ffb36a137"><td id="xFFm" class="" style="width:531px">height</td><td id="bz:x" class="" style="width:531px">controle la hauteur d’un élément</td></tr><tr id="c8273e15-b7b4-4e41-94d5-bd9d9a45068f"><td id="xFFm" class="" style="width:531px">display</td><td id="bz:x" class="" style="width:531px">détermine le modèle de boite pour l’élément</td></tr><tr id="176647a7-425d-4931-b1b2-34b3a632da16"><td id="xFFm" class="" style="width:531px">position</td><td id="bz:x" class="" style="width:531px">controle le positionnement d’un élément par rapport à son conteneur</td></tr><tr id="3dc8d1ff-6d52-4fa5-b00c-c1547ad429bc"><td id="xFFm" class="" style="width:531px">float</td><td id="bz:x" class="" style="width:531px">fait “flotter” un élément à droite ou à gauche</td></tr><tr id="c784d6b5-1dd7-46b7-be2e-2aef13bf4978"><td id="xFFm" class="" style="width:531px">clear</td><td id="bz:x" class="" style="width:531px">spécifie de quel côté les éléments flottants sont interdits</td></tr><tr id="b5db8695-a25b-4b34-9e62-0157035a5365"><td id="xFFm" class="" style="width:531px">text-decoration</td><td id="bz:x" class="" style="width:531px">ajouter ou supprimer la “décoration” du texte (souligné, barré, etc.)</td></tr><tr id="19e6a676-6d67-4a43-a35b-0fcbc7e01e1a"><td id="xFFm" class="" style="width:531px">line-height</td><td id="bz:x" class="" style="width:531px">détermine la hauteur de ligne dans un élément</td></tr><tr id="13f3fb0e-200c-4fc3-8548-163b144bddde"><td id="xFFm" class="" style="width:531px">overflow</td><td id="bz:x" class="" style="width:531px">spécifié la gestion du dépassement de contenu</td></tr><tr id="3253ac31-8c53-429e-ae0d-4cf3d3c4b4d6"><td id="xFFm" class="" style="width:531px">box-shadow</td><td id="bz:x" class="" style="width:531px">ajoute une ombre à la boite d’un élément</td></tr><tr id="64377081-891a-43ff-8c60-c0b99b34bc92"><td id="xFFm" class="" style="width:531px">transition</td><td id="bz:x" class="" style="width:531px">crée une transition entre les états d’un élément</td></tr><tr id="ba001849-4035-459d-8b1e-08ea97d35ca0"><td id="xFFm" class="" style="width:531px">media queries</td><td id="bz:x" class="" style="width:531px">adapte le style en fonction des caractéristiques du périphérique (ordinateur, tablette, mobile, etc.)</td></tr></tbody></table>
-	
-	<h1 id="0909630b-34e4-4e17-83fa-837baddab561" class="">Les codes couleur</h1><p id="008042e7-5728-45f8-b480-ed900228659e" class="">En HTML, CSS et dans le monde de l’informatique en général, les couleurs sont codées. Cela permet d’obtenir précisément une couleur, tout en restant simple, compacte et surtout standard. Cela est possible en décomposant la lumière en ses 3 couleur primaires : le <mark class="highlight-red"><mark class="highlight-red_background">rouge</mark></mark>, le <mark class="highlight-teal"><mark class="highlight-teal_background">vert</mark></mark> et le <mark class="highlight-blue"><mark class="highlight-blue_background">bleu</mark></mark>. Il s’agit des couleurs primaires en physique. En impression couleur, les couleurs primaires sont le jaune, le cyan et le magenta et en peinture, ce sont le rouge, le bleu et le jaune. Pour bien comprendre le système de codage des couleurs, il faut d’abord comprendre le comptage hexadécimal. Et pour mieux comprendre le comptage en hexadécimal, il est plus facile de commencer avec le comptage en binaire.</p><figure id="68df84d5-947f-4890-a020-de536dd22ebc" class="link-to-page"><a href="https://www.notion.so/Compter-en-binaire-68df84d5947f4890a020de536dd22ebc?pvs=21"><span class="icon">🔟</span>Compter en binaire</a></figure><figure id="b5ffd7e0-1aa3-461c-b884-4a23b056db6a" class="link-to-page"><a href="https://www.notion.so/Compter-en-hexad-cimal-b5ffd7e01aa3461cb8844a23b056db6a?pvs=21"><span class="icon">🔢</span>Compter en hexadécimal</a></figure><p id="a22ee1a4-7061-4de5-ad7a-d14ced4e2538" class="">Les couleur primaires sont donc chacune divisées en 256 teintes différentes, de la moins intense (0) à la plus intense (255). La notation RGB signifie Red Green Blue (RVB pour Rouge Vert Bleu en français). Le code couleur correspond à une série de chiffres indiquant la quantité de rouge, de vert puis de bleu, le tout précédé du symbole <code>#</code>. En décimal, cela donne donc cette structure : <code>#</code><mark class="highlight-red"><code>124</code></mark><mark class="highlight-teal"><code>056</code></mark><mark class="highlight-blue"><code>244</code></mark><mark class="highlight-default">. Pas très pratique à utiliser…</mark></p><p id="c1981acd-730b-4ba2-aaab-42ad35c64b2a" class="">En réalité, l’utilisation de l’hexadécimal permet de réduire le nombre de caractères à utiliser. Ainsi, pour obtenir l’ensemble des chiffres de 0 à 255 (256 nombres différents) en hexadécimal, il ne faut que 2 caractères (contre 3 en décimal). En effet, 255<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow></mrow><mn>10</mn></msub></mrow><annotation encoding="application/x-tex">_{10}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4511em;vertical-align:-0.15em;"></span><span class="mord"><span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">10</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span> se note ff<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow></mrow><mn>16</mn></msub></mrow><annotation encoding="application/x-tex">_{16}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4511em;vertical-align:-0.15em;"></span><span class="mord"><span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">16</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span>. Le code couleur se transforme donc en <code>#</code><mark class="highlight-red"><code>7c</code></mark><mark class="highlight-teal"><code>38</code></mark><mark class="highlight-blue"><code>f4</code></mark>.</p><p id="ddaf6b5d-fcb4-4a6b-940c-089c8310b2ac" class="">Voici quelques codes </p><ul id="3ecf33ff-6e10-4db1-a94d-4b2648dd4140" class="bulleted-list"><li style="list-style-type:disc"></li></ul><h1 id="0f25f637-806e-4005-9e52-bae3a908a7dc" class="">Les unités du CSS</h1><p id="7e29f11a-9c67-44cb-a02a-bd74bec7afc1" class="">En CSS, il existe plusieurs unités pour spécifier les tailles et les distances. Certaines d’entre elles sont plus utilisées que d’autres, pour des raisons d’ergonomie et d’adaptabilité en fonction du support. Ces notions sont essentielles à l’heure actuelles, pour que les sites web soient utilisables aussi bien avec des ordinateurs, des tablettes ou des mobiles. </p><p id="eb69c52e-a907-426d-a0c3-707abd528625" class="">Voici les différentes unités à connaitre pour ce cours : </p><table id="b7a7d6e7-dc49-4085-a72b-45d074c8ce68" class="simple-table"><thead class="simple-table-header"><tr id="e87264af-d1c5-4894-91d5-3f7c70e64f69"><th id="CkeK" class="simple-table-header-color simple-table-header" style="width:531px">Unité</th><th id="eybL" class="simple-table-header-color simple-table-header" style="width:531px">Signification</th></tr></thead><tbody><tr id="7f0ff6d8-cf69-46a9-bd97-ec9cac9d73ee"><th id="CkeK" class="simple-table-header-color simple-table-header" style="width:531px">px (= Pixel)</th><td id="eybL" class="" style="width:531px">Une unité de mesure fixe qui correspond à un pixel sur l&#x27;écran. Les pixels sont des unités absolues, ce qui signifie qu&#x27;ils ne changent pas de taille en fonction de la taille de l&#x27;écran ou du périphérique.</td></tr><tr id="96995841-5e9c-4b42-8db5-7d10b62733e4"><th id="CkeK" class="simple-table-header-color simple-table-header" style="width:531px">% (= Pourcentage)</th><td id="eybL" class="" style="width:531px">Cette unité est relative à la taille du conteneur parent. Par exemple, si vous définissez la largeur d&#x27;un élément à 50%, cela signifie qu&#x27;il occupera la moitié de la largeur de son conteneur parent.</td></tr><tr id="1277e352-5105-4bfb-bec2-5788ba01a266"><th id="CkeK" class="simple-table-header-color simple-table-header" style="width:531px">em</th><td id="eybL" class="" style="width:531px">Une unité relative à la taille de la police de l&#x27;élément. Par exemple, si la taille de police d&#x27;un élément est de 16px, <code><strong>1em</strong></code> équivaudra à 16px, <code><strong>2em</strong></code> équivaudra à 32px, et ainsi de suite.</td></tr><tr id="ca220e88-8e21-49b2-8e70-8bacc7b324a5"><th id="CkeK" class="simple-table-header-color simple-table-header" style="width:531px">rem</th><td id="eybL" class="" style="width:531px">Une unité relative à la taille de la police de l&#x27;élément racine (<code><strong>&lt;html&gt;</strong></code>). Cela signifie que <code><strong>1rem</strong></code> équivaut à la taille de la police de l&#x27;élément racine, tandis que <code><strong>2rem</strong></code> équivaut à deux fois la taille de la police de l&#x27;élément racine.</td></tr><tr id="74f8c02f-b3be-4c20-b734-17feb4814edc"><th id="CkeK" class="simple-table-header-color simple-table-header" style="width:531px">vw (= Viewport Width)</th><td id="eybL" class="" style="width:531px">Une unité relative à la largeur de la fenêtre d&#x27;affichage. <code><strong>1vw</strong></code> équivaut à 1% de la largeur de la fenêtre d&#x27;affichage.</td></tr><tr id="07a616ce-6d1e-4a17-9f71-b4b92ce177ba"><th id="CkeK" class="simple-table-header-color simple-table-header" style="width:531px">vh (= Viewport Height)</th><td id="eybL" class="" style="width:531px">Une unité relative à la hauteur de la fenêtre d&#x27;affichage. <code><strong>1vh</strong></code> équivaut à 1% de la hauteur de la fenêtre d&#x27;affichage.</td></tr><tr id="7805e5d3-d195-4b8a-ace3-985356df0286"><th id="CkeK" class="simple-table-header-color simple-table-header" style="width:531px">vmin (= Viewport Minimum)</th><td id="eybL" class="" style="width:531px">Une unité relative au plus petit des deux entre <code><strong>vw</strong></code> et <code><strong>vh</strong></code>.</td></tr><tr id="792177c7-4cfe-4514-b1c3-0713935331eb"><th id="CkeK" class="simple-table-header-color simple-table-header" style="width:531px">vmax (= Viewport Maximum)</th><td id="eybL" class="" style="width:531px">Une unité relative au plus grand des deux entre <code><strong>vw</strong></code> et <code><strong>vh</strong></code>.</td></tr><tr id="10eea9c8-6f84-4573-866d-4c9ae8aebdb3"><th id="CkeK" class="simple-table-header-color simple-table-header" style="width:531px">cm (= Centimètre)</th><td id="eybL" class="" style="width:531px">Une unité de mesure absolue correspondant à un centimètre.</td></tr><tr id="c61607cb-f4bc-4111-a818-ec1cb1b0e904"><th id="CkeK" class="simple-table-header-color simple-table-header" style="width:531px">mm (= Millimètre)</th><td id="eybL" class="" style="width:531px">Une unité de mesure absolue correspondant à un millimètre.</td></tr></tbody></table><p id="2948c69d-8ed5-4228-bd34-e5f7c85009e6" class="">En HTML et CSS, un &quot;conteneur parent&quot; fait référence à un élément qui englobe d&#x27;autres éléments à l&#x27;intérieur de la structure HTML. Ce conteneur parent peut être n&#x27;importe quel élément HTML, tel qu&#x27;une <code><strong>&lt;div&gt;</strong></code>, un <code><strong>&lt;section&gt;</strong></code>, un <code><strong>&lt;article&gt;</strong></code>, etc. L&#x27;idée principale est que cet élément est le parent de ses enfants directs.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="f83e8d40-6144-4fa8-a402-0ff340246995" class="code"><code class="language-HTML">&lt;div class=&quot;container&quot;&gt;
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>CSS</title>
+    <style>
+      /* cspell:disable-file */
+      /* webkit printing magic: print all background colors */
+      html {
+        -webkit-print-color-adjust: exact;
+      }
+      * {
+        box-sizing: border-box;
+        -webkit-print-color-adjust: exact;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      @media only screen {
+        body {
+          margin: 2em auto;
+          max-width: 900px;
+          color: rgb(55, 53, 47);
+        }
+      }
+
+      body {
+        line-height: 1.5;
+        white-space: pre-wrap;
+      }
+
+      a,
+      a.visited {
+        color: inherit;
+        text-decoration: underline;
+      }
+
+      .pdf-relative-link-path {
+        font-size: 80%;
+        color: #444;
+      }
+
+      h1,
+      h2,
+      h3 {
+        letter-spacing: -0.01em;
+        line-height: 1.2;
+        font-weight: 600;
+        margin-bottom: 0;
+      }
+
+      .page-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-top: 0;
+        margin-bottom: 0.75em;
+      }
+
+      h1 {
+        font-size: 1.875rem;
+        margin-top: 1.875rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+      }
+
+      h3 {
+        font-size: 1.25rem;
+        margin-top: 1.25rem;
+      }
+
+      .source {
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        padding: 1.5em;
+        word-break: break-all;
+      }
+
+      .callout {
+        border-radius: 3px;
+        padding: 1rem;
+      }
+
+      figure {
+        margin: 1.25em 0;
+        page-break-inside: avoid;
+      }
+
+      figcaption {
+        opacity: 0.5;
+        font-size: 85%;
+        margin-top: 0.5em;
+      }
+
+      mark {
+        background-color: transparent;
+      }
+
+      .indented {
+        padding-left: 1.5em;
+      }
+
+      hr {
+        background: transparent;
+        display: block;
+        width: 100%;
+        height: 1px;
+        visibility: visible;
+        border: none;
+        border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+      }
+
+      img {
+        max-width: 100%;
+      }
+
+      @media only print {
+        img {
+          max-height: 100vh;
+          object-fit: contain;
+        }
+      }
+
+      @page {
+        margin: 1in;
+      }
+
+      .collection-content {
+        font-size: 0.875rem;
+      }
+
+      .column-list {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .column {
+        padding: 0 1em;
+      }
+
+      .column:first-child {
+        padding-left: 0;
+      }
+
+      .column:last-child {
+        padding-right: 0;
+      }
+
+      .table_of_contents-item {
+        display: block;
+        font-size: 0.875rem;
+        line-height: 1.3;
+        padding: 0.125rem;
+      }
+
+      .table_of_contents-indent-1 {
+        margin-left: 1.5rem;
+      }
+
+      .table_of_contents-indent-2 {
+        margin-left: 3rem;
+      }
+
+      .table_of_contents-indent-3 {
+        margin-left: 4.5rem;
+      }
+
+      .table_of_contents-link {
+        text-decoration: none;
+        opacity: 0.7;
+        border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+      }
+
+      table,
+      th,
+      td {
+        border: 1px solid rgba(55, 53, 47, 0.09);
+        border-collapse: collapse;
+      }
+
+      table {
+        border-left: none;
+        border-right: none;
+      }
+
+      th,
+      td {
+        font-weight: normal;
+        padding: 0.25em 0.5em;
+        line-height: 1.5;
+        min-height: 1.5em;
+        text-align: left;
+      }
+
+      th {
+        color: rgba(55, 53, 47, 0.6);
+      }
+
+      ol,
+      ul {
+        margin: 0;
+        margin-block-start: 0.6em;
+        margin-block-end: 0.6em;
+      }
+
+      li > ol:first-child,
+      li > ul:first-child {
+        margin-block-start: 0.6em;
+      }
+
+      ul > li {
+        list-style: disc;
+      }
+
+      ul.to-do-list {
+        padding-inline-start: 0;
+      }
+
+      ul.to-do-list > li {
+        list-style: none;
+      }
+
+      .to-do-children-checked {
+        text-decoration: line-through;
+        opacity: 0.375;
+      }
+
+      ul.toggle > li {
+        list-style: none;
+      }
+
+      ul {
+        padding-inline-start: 1.7em;
+      }
+
+      ul > li {
+        padding-left: 0.1em;
+      }
+
+      ol {
+        padding-inline-start: 1.6em;
+      }
+
+      ol > li {
+        padding-left: 0.2em;
+      }
+
+      .mono ol {
+        padding-inline-start: 2em;
+      }
+
+      .mono ol > li {
+        text-indent: -0.4em;
+      }
+
+      .toggle {
+        padding-inline-start: 0em;
+        list-style-type: none;
+      }
+
+      /* Indent toggle children */
+      .toggle > li > details {
+        padding-left: 1.7em;
+      }
+
+      .toggle > li > details > summary {
+        margin-left: -1.1em;
+      }
+
+      .selected-value {
+        display: inline-block;
+        padding: 0 0.5em;
+        background: rgba(206, 205, 202, 0.5);
+        border-radius: 3px;
+        margin-right: 0.5em;
+        margin-top: 0.3em;
+        margin-bottom: 0.3em;
+        white-space: nowrap;
+      }
+
+      .collection-title {
+        display: inline-block;
+        margin-right: 1em;
+      }
+
+      .page-description {
+        margin-bottom: 2em;
+      }
+
+      .simple-table {
+        margin-top: 1em;
+        font-size: 0.875rem;
+        empty-cells: show;
+      }
+      .simple-table td {
+        height: 29px;
+        min-width: 120px;
+      }
+
+      .simple-table th {
+        height: 29px;
+        min-width: 120px;
+      }
+
+      .simple-table-header-color {
+        background: rgb(247, 246, 243);
+        color: black;
+      }
+      .simple-table-header {
+        font-weight: 500;
+      }
+
+      time {
+        opacity: 0.5;
+      }
+
+      .icon {
+        display: inline-block;
+        max-width: 1.2em;
+        max-height: 1.2em;
+        text-decoration: none;
+        vertical-align: text-bottom;
+        margin-right: 0.5em;
+      }
+
+      img.icon {
+        border-radius: 3px;
+      }
+
+      .user-icon {
+        width: 1.5em;
+        height: 1.5em;
+        border-radius: 100%;
+        margin-right: 0.5rem;
+      }
+
+      .user-icon-inner {
+        font-size: 0.8em;
+      }
+
+      .text-icon {
+        border: 1px solid #000;
+        text-align: center;
+      }
+
+      .page-cover-image {
+        display: block;
+        object-fit: cover;
+        width: 100%;
+        max-height: 30vh;
+      }
+
+      .page-header-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .page-header-icon-with-cover {
+        margin-top: -0.72em;
+        margin-left: 0.07em;
+      }
+
+      .page-header-icon img {
+        border-radius: 3px;
+      }
+
+      .link-to-page {
+        margin: 1em 0;
+        padding: 0;
+        border: none;
+        font-weight: 500;
+      }
+
+      p > .user {
+        opacity: 0.5;
+      }
+
+      td > .user,
+      td > time {
+        white-space: nowrap;
+      }
+
+      input[type="checkbox"] {
+        transform: scale(1.5);
+        margin-right: 0.6em;
+        vertical-align: middle;
+      }
+
+      p {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+      }
+
+      .image {
+        border: none;
+        margin: 1.5em 0;
+        padding: 0;
+        border-radius: 0;
+        text-align: center;
+      }
+
+      .code,
+      code {
+        background: rgba(135, 131, 120, 0.15);
+        border-radius: 3px;
+        padding: 0.2em 0.4em;
+        border-radius: 3px;
+        font-size: 85%;
+        tab-size: 2;
+      }
+
+      code {
+        color: #eb5757;
+      }
+
+      .code {
+        padding: 1.5em 1em;
+      }
+
+      .code-wrap {
+        white-space: pre-wrap;
+        word-break: break-all;
+      }
+
+      .code > code {
+        background: none;
+        padding: 0;
+        font-size: 100%;
+        color: inherit;
+      }
+
+      blockquote {
+        font-size: 1.25em;
+        margin: 1em 0;
+        padding-left: 1em;
+        border-left: 3px solid rgb(55, 53, 47);
+      }
+
+      .bookmark {
+        text-decoration: none;
+        max-height: 8em;
+        padding: 0;
+        display: flex;
+        width: 100%;
+        align-items: stretch;
+      }
+
+      .bookmark-title {
+        font-size: 0.85em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: 1.75em;
+        white-space: nowrap;
+      }
+
+      .bookmark-text {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .bookmark-info {
+        flex: 4 1 180px;
+        padding: 12px 14px 14px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .bookmark-image {
+        width: 33%;
+        flex: 1 1 180px;
+        display: block;
+        position: relative;
+        object-fit: cover;
+        border-radius: 1px;
+      }
+
+      .bookmark-description {
+        color: rgba(55, 53, 47, 0.6);
+        font-size: 0.75em;
+        overflow: hidden;
+        max-height: 4.5em;
+        word-break: break-word;
+      }
+
+      .bookmark-href {
+        font-size: 0.75em;
+        margin-top: 0.25em;
+      }
+
+      .sans {
+        font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont,
+          "Segoe UI Variable Display", "Segoe UI", Helvetica,
+          "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji",
+          "Segoe UI Symbol";
+      }
+      .code {
+        font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono",
+          "Liberation Mono", Courier, monospace;
+      }
+      .serif {
+        font-family: Lyon-Text, Georgia, ui-serif, serif;
+      }
+      .mono {
+        font-family: iawriter-mono, Nitti, Menlo, Courier, monospace;
+      }
+      .pdf .sans {
+        font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont,
+          "Segoe UI Variable Display", "Segoe UI", Helvetica,
+          "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji",
+          "Segoe UI Symbol", "Twemoji", "Noto Color Emoji", "Noto Sans CJK JP";
+      }
+      .pdf:lang(zh-CN) .sans {
+        font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont,
+          "Segoe UI Variable Display", "Segoe UI", Helvetica,
+          "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji",
+          "Segoe UI Symbol", "Twemoji", "Noto Color Emoji", "Noto Sans CJK SC";
+      }
+      .pdf:lang(zh-TW) .sans {
+        font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont,
+          "Segoe UI Variable Display", "Segoe UI", Helvetica,
+          "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji",
+          "Segoe UI Symbol", "Twemoji", "Noto Color Emoji", "Noto Sans CJK TC";
+      }
+      .pdf:lang(ko-KR) .sans {
+        font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont,
+          "Segoe UI Variable Display", "Segoe UI", Helvetica,
+          "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji",
+          "Segoe UI Symbol", "Twemoji", "Noto Color Emoji", "Noto Sans CJK KR";
+      }
+      .pdf .code {
+        font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas,
+          "PT Mono", "Liberation Mono", Courier, monospace, "Twemoji",
+          "Noto Color Emoji", "Noto Sans Mono CJK JP";
+      }
+      .pdf:lang(zh-CN) .code {
+        font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas,
+          "PT Mono", "Liberation Mono", Courier, monospace, "Twemoji",
+          "Noto Color Emoji", "Noto Sans Mono CJK SC";
+      }
+      .pdf:lang(zh-TW) .code {
+        font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas,
+          "PT Mono", "Liberation Mono", Courier, monospace, "Twemoji",
+          "Noto Color Emoji", "Noto Sans Mono CJK TC";
+      }
+      .pdf:lang(ko-KR) .code {
+        font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas,
+          "PT Mono", "Liberation Mono", Courier, monospace, "Twemoji",
+          "Noto Color Emoji", "Noto Sans Mono CJK KR";
+      }
+      .pdf .serif {
+        font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, "Twemoji",
+          "Noto Color Emoji", "Noto Serif CJK JP";
+      }
+      .pdf:lang(zh-CN) .serif {
+        font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, "Twemoji",
+          "Noto Color Emoji", "Noto Serif CJK SC";
+      }
+      .pdf:lang(zh-TW) .serif {
+        font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, "Twemoji",
+          "Noto Color Emoji", "Noto Serif CJK TC";
+      }
+      .pdf:lang(ko-KR) .serif {
+        font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, "Twemoji",
+          "Noto Color Emoji", "Noto Serif CJK KR";
+      }
+      .pdf .mono {
+        font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace,
+          "Twemoji", "Noto Color Emoji", "Noto Sans Mono CJK JP";
+      }
+      .pdf:lang(zh-CN) .mono {
+        font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace,
+          "Twemoji", "Noto Color Emoji", "Noto Sans Mono CJK SC";
+      }
+      .pdf:lang(zh-TW) .mono {
+        font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace,
+          "Twemoji", "Noto Color Emoji", "Noto Sans Mono CJK TC";
+      }
+      .pdf:lang(ko-KR) .mono {
+        font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace,
+          "Twemoji", "Noto Color Emoji", "Noto Sans Mono CJK KR";
+      }
+      .highlight-default {
+        color: rgba(55, 53, 47, 1);
+      }
+      .highlight-gray {
+        color: rgba(120, 119, 116, 1);
+        fill: rgba(120, 119, 116, 1);
+      }
+      .highlight-brown {
+        color: rgba(159, 107, 83, 1);
+        fill: rgba(159, 107, 83, 1);
+      }
+      .highlight-orange {
+        color: rgba(217, 115, 13, 1);
+        fill: rgba(217, 115, 13, 1);
+      }
+      .highlight-yellow {
+        color: rgba(203, 145, 47, 1);
+        fill: rgba(203, 145, 47, 1);
+      }
+      .highlight-teal {
+        color: rgba(68, 131, 97, 1);
+        fill: rgba(68, 131, 97, 1);
+      }
+      .highlight-blue {
+        color: rgba(51, 126, 169, 1);
+        fill: rgba(51, 126, 169, 1);
+      }
+      .highlight-purple {
+        color: rgba(144, 101, 176, 1);
+        fill: rgba(144, 101, 176, 1);
+      }
+      .highlight-pink {
+        color: rgba(193, 76, 138, 1);
+        fill: rgba(193, 76, 138, 1);
+      }
+      .highlight-red {
+        color: rgba(212, 76, 71, 1);
+        fill: rgba(212, 76, 71, 1);
+      }
+      .highlight-default_background {
+        color: rgba(55, 53, 47, 1);
+      }
+      .highlight-gray_background {
+        background: rgba(248, 248, 247, 1);
+      }
+      .highlight-brown_background {
+        background: rgba(244, 238, 238, 1);
+      }
+      .highlight-orange_background {
+        background: rgba(251, 236, 221, 1);
+      }
+      .highlight-yellow_background {
+        background: rgba(251, 243, 219, 1);
+      }
+      .highlight-teal_background {
+        background: rgba(237, 243, 236, 1);
+      }
+      .highlight-blue_background {
+        background: rgba(231, 243, 248, 1);
+      }
+      .highlight-purple_background {
+        background: rgba(248, 243, 252, 1);
+      }
+      .highlight-pink_background {
+        background: rgba(252, 241, 246, 1);
+      }
+      .highlight-red_background {
+        background: rgba(253, 235, 236, 1);
+      }
+      .block-color-default {
+        color: inherit;
+        fill: inherit;
+      }
+      .block-color-gray {
+        color: rgba(120, 119, 116, 1);
+        fill: rgba(120, 119, 116, 1);
+      }
+      .block-color-brown {
+        color: rgba(159, 107, 83, 1);
+        fill: rgba(159, 107, 83, 1);
+      }
+      .block-color-orange {
+        color: rgba(217, 115, 13, 1);
+        fill: rgba(217, 115, 13, 1);
+      }
+      .block-color-yellow {
+        color: rgba(203, 145, 47, 1);
+        fill: rgba(203, 145, 47, 1);
+      }
+      .block-color-teal {
+        color: rgba(68, 131, 97, 1);
+        fill: rgba(68, 131, 97, 1);
+      }
+      .block-color-blue {
+        color: rgba(51, 126, 169, 1);
+        fill: rgba(51, 126, 169, 1);
+      }
+      .block-color-purple {
+        color: rgba(144, 101, 176, 1);
+        fill: rgba(144, 101, 176, 1);
+      }
+      .block-color-pink {
+        color: rgba(193, 76, 138, 1);
+        fill: rgba(193, 76, 138, 1);
+      }
+      .block-color-red {
+        color: rgba(212, 76, 71, 1);
+        fill: rgba(212, 76, 71, 1);
+      }
+      .block-color-default_background {
+        color: inherit;
+        fill: inherit;
+      }
+      .block-color-gray_background {
+        background: rgba(248, 248, 247, 1);
+      }
+      .block-color-brown_background {
+        background: rgba(244, 238, 238, 1);
+      }
+      .block-color-orange_background {
+        background: rgba(251, 236, 221, 1);
+      }
+      .block-color-yellow_background {
+        background: rgba(251, 243, 219, 1);
+      }
+      .block-color-teal_background {
+        background: rgba(237, 243, 236, 1);
+      }
+      .block-color-blue_background {
+        background: rgba(231, 243, 248, 1);
+      }
+      .block-color-purple_background {
+        background: rgba(248, 243, 252, 1);
+      }
+      .block-color-pink_background {
+        background: rgba(252, 241, 246, 1);
+      }
+      .block-color-red_background {
+        background: rgba(253, 235, 236, 1);
+      }
+      .select-value-color-uiBlue {
+        background-color: undefined;
+      }
+      .select-value-color-pink {
+        background-color: rgba(225, 136, 179, 0.27);
+      }
+      .select-value-color-purple {
+        background-color: rgba(168, 129, 197, 0.27);
+      }
+      .select-value-color-green {
+        background-color: rgba(123, 183, 129, 0.27);
+      }
+      .select-value-color-gray {
+        background-color: rgba(84, 72, 49, 0.15);
+      }
+      .select-value-color-transparentGray {
+        background-color: undefined;
+      }
+      .select-value-color-translucentGray {
+        background-color: undefined;
+      }
+      .select-value-color-orange {
+        background-color: rgba(224, 124, 57, 0.27);
+      }
+      .select-value-color-brown {
+        background-color: rgba(210, 162, 141, 0.35);
+      }
+      .select-value-color-red {
+        background-color: rgba(244, 171, 159, 0.4);
+      }
+      .select-value-color-yellow {
+        background-color: rgba(236, 191, 66, 0.39);
+      }
+      .select-value-color-blue {
+        background-color: rgba(93, 165, 206, 0.27);
+      }
+      .select-value-color-pageGlass {
+        background-color: undefined;
+      }
+      .select-value-color-washGlass {
+        background-color: undefined;
+      }
+
+      .checkbox {
+        display: inline-flex;
+        vertical-align: text-bottom;
+        width: 16;
+        height: 16;
+        background-size: 16px;
+        margin-left: 2px;
+        margin-right: 5px;
+      }
+
+      .checkbox-on {
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+      }
+
+      .checkbox-off {
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+      }
+    </style>
+  </head>
+
+  <body>
+    <article id="82fa905e-4730-46d4-a9b8-9aaf6c5fc164" class="page sans">
+      <header>
+        <img
+          class="page-cover-image"
+          src="https://images.unsplash.com/photo-1523437113738-bbd3cc89fb19?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"
+          style="object-position: center 50%"
+        />
+        <div class="page-header-icon page-header-icon-with-cover">
+          <span class="icon">👨‍💻</span>
+        </div>
+        <h1 class="page-title">CSS</h1>
+        <p class="page-description"></p>
+      </header>
+      <div class="page-body">
+        <figure
+          id="17312a65-5f56-8063-9293-e7f330b0b55f"
+          class="block-color-gray_background link-to-page"
+        >
+          <a
+            href="https://www.notion.so/HTML-17312a655f5680639293e7f330b0b55f?pvs=21"
+            ><span class="icon">👨‍💻</span>HTML</a
+          >
+        </figure>
+        <ul id="17e12a65-5f56-8035-a9f7-c7fdfd0971cc" class="toggle">
+          <p id="3ae4c429-81e6-4d71-8601-328e34ed241a" class="">
+            CSS = Cascading Style Sheet
+          </p>
+          <ol
+            type="1"
+            id="d4abf64f-ab2b-4ceb-8a38-207b7d61e43a"
+            class="numbered-list"
+            start="1"
+          >
+            <li>
+              Lier la page HTML à la feuille CSS
+              <p id="abdc7eb8-672f-490b-aa96-0cb5ea216a9e" class="">
+                ajouter une balise &lt;link&gt; dans le &lt;head&gt;
+              </p>
+              <script
+                src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"
+                integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg=="
+                crossorigin="anonymous"
+                referrerpolicy="no-referrer"
+              ></script>
+              <link
+                rel="stylesheet"
+                href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css"
+                integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ=="
+                crossorigin="anonymous"
+                referrerpolicy="no-referrer"
+              />
+              <pre id="17e12a65-5f56-8006-b667-f677dc014120" class="code">
+                            <code class="language-HTML">&lt;link rel=&quot;stylesheet&quot; href=&quot;styles.css&quot;&gt;</code>
+                        </pre>
+            </li>
+          </ol>
+          <ol
+            type="1"
+            id="acce6ee5-1502-4cd1-b49f-d6e89abe2695"
+            class="numbered-list"
+            start="2"
+          >
+            <li>
+              Mettre en place le CSS
+              <p id="f8469031-8e8e-4490-9700-8753dc1b2682" class="">
+                Syntaxe générale
+              </p>
+            </li>
+          </ol>
+          <p id="ccb825bf-4d2a-4011-96a4-66866b906dfa" class="">
+            Le CSS se mets en place de la manière suivante :
+          </p>
+          <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"
+            integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+          ></script>
+          <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css"
+            integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+          />
+          <pre id="a960ebf5-fadc-4dd1-a85f-5ada7c6ac5df" class="code">
+                    <code class="language-CSS">
+                        sélecteur {
+                        propriété1: valeur1;
+                        propriété2: valeur2;
+                        }
+                    </code>
+                </pre>
+          <p id="8340a63f-e1ad-4b12-bfb3-b5a49128eeba" class="">
+            Le sélecteur est l’élément (= la balise) HTML sur lequel la
+            déclaration va être appliquée
+          </p>
+          <p id="8aa082c4-07b6-4b88-9b21-0387f4002404" class="">
+            La déclaration est l’ensemble des propriétés appliquées au
+            sélecteur. Les propriétés sont délimitées par un “;”
+          </p>
+          <p id="30f1ba53-a568-4a93-858d-817585ab6df4" class="">
+            Une propriété est l’élément sur lequel vous appliquer un style
+          </p>
+          <p id="1629eba3-b9c3-41b0-98b1-757b51c62bf0" class="">
+            La valeur est la manière dont vous allez styliser.
+          </p>
+          <p id="f2110b01-5f62-4128-b916-cb7bc6a4da13" class="">
+            Par exemple, pour modifier la couleur du texte de tous les
+            paragraphes, la syntaxe CSS à respecter est la suivante :
+          </p>
+          <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"
+            integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+          ></script>
+          <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css"
+            integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+          />
+          <pre id="c49154d0-f58b-40bf-9555-dcb72b8613f5" class="code">
+                    <code class="language-CSS">
+                        p {
+                        color: #ffffff;
+                        }
+                    </code>
+                </pre>
+          <p id="44b5b86a-26f2-4ac8-af0c-cf87274f1db6" class="">
+            p représente la balise paragraphe
+          </p>
+          <p id="ec1875d4-7965-45ab-ad0a-0968e8992c82" class="">
+            color représente la couleur de la police
+          </p>
+          <p id="ec5a2835-1bbc-487e-b1ef-05c248cd9b4c" class="">
+            #ffffff est le code de la couleur blanche
+          </p>
+          <p id="70ca153a-b0f7-4e43-886f-22d6ec37a134" class="">
+            Liste des propriétés à connaître :
+          </p>
+          <table id="880a1639-5edb-4537-b6c8-69c98ca96c75" class="simple-table">
+            <thead class="simple-table-header">
+              <tr id="a9007d99-512e-4c5c-8dd4-a00fec5c9b0c">
+                <th
+                  id="xFFm"
+                  class="simple-table-header-color simple-table-header"
+                  style="width: 531px"
+                >
+                  Propriété
+                </th>
+                <th
+                  id="bz:x"
+                  class="simple-table-header-color simple-table-header"
+                  style="width: 531px"
+                >
+                  Rôle
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="59c0ffbf-8fb9-4de8-a98c-298e564cdcf8">
+                <td id="xFFm" class="" style="width: 531px">color</td>
+                <td id="bz:x" class="" style="width: 531px">
+                  Indiquer la couleur du texte
+                </td>
+              </tr>
+              <tr id="54dee98e-85b1-4d1f-a850-11ad0090d603">
+                <td id="xFFm" class="" style="width: 531px">font-size</td>
+                <td id="bz:x" class="" style="width: 531px">Taille du texte</td>
+              </tr>
+              <tr id="92b22f29-d7e1-4445-8e1e-bddfc01e9277">
+                <td id="xFFm" class="" style="width: 531px">font-family</td>
+                <td id="bz:x" class="" style="width: 531px">
+                  La police de caractère
+                </td>
+              </tr>
+              <tr id="4d35676e-22f1-4124-b5dd-16919ce01ea0">
+                <td id="xFFm" class="" style="width: 531px">font-weight</td>
+                <td id="bz:x" class="" style="width: 531px">
+                  l’épaisseur de la police (normal ou gras =&gt; bold)
+                </td>
+              </tr>
+              <tr id="cf846b94-0af5-499b-98d6-a3ba3c8a8169">
+                <td id="xFFm" class="" style="width: 531px">text-align</td>
+                <td id="bz:x" class="" style="width: 531px">
+                  alignement du texte (à gauche, au centre, à droite, justifié)
+                </td>
+              </tr>
+              <tr id="f91d6751-1a5e-4a7e-a96f-4ea12ebca488">
+                <td id="xFFm" class="" style="width: 531px">margin</td>
+                <td id="bz:x" class="" style="width: 531px">
+                  détermine les marges extérieures
+                </td>
+              </tr>
+              <tr id="d199a339-6be0-41a5-9850-a5fb4655bdd0">
+                <td id="xFFm" class="" style="width: 531px">padding</td>
+                <td id="bz:x" class="" style="width: 531px">
+                  détermine les marges intérieures
+                </td>
+              </tr>
+              <tr id="3c58d928-3470-4dfb-9a95-51df885927a7">
+                <td id="xFFm" class="" style="width: 531px">border</td>
+                <td id="bz:x" class="" style="width: 531px">
+                  Crée une bordure autour de l’élément
+                </td>
+              </tr>
+              <tr id="fdf1822f-22aa-4e4b-a0b7-3b5fb10175b0">
+                <td id="xFFm" class="" style="width: 531px">
+                  background-color
+                </td>
+                <td id="bz:x" class="" style="width: 531px">
+                  Fixe la couleur de l’arrière plan d’un élément
+                </td>
+              </tr>
+              <tr id="50a06443-7fae-4b12-8be6-31c8d97635c6">
+                <td id="xFFm" class="" style="width: 531px">width</td>
+                <td id="bz:x" class="" style="width: 531px">
+                  controle la largeur d’un élément
+                </td>
+              </tr>
+              <tr id="0466be35-5dff-412c-b807-3b2ffb36a137">
+                <td id="xFFm" class="" style="width: 531px">height</td>
+                <td id="bz:x" class="" style="width: 531px">
+                  controle la hauteur d’un élément
+                </td>
+              </tr>
+              <tr id="c8273e15-b7b4-4e41-94d5-bd9d9a45068f">
+                <td id="xFFm" class="" style="width: 531px">display</td>
+                <td id="bz:x" class="" style="width: 531px">
+                  détermine le modèle de boite pour l’élément
+                </td>
+              </tr>
+              <tr id="176647a7-425d-4931-b1b2-34b3a632da16">
+                <td id="xFFm" class="" style="width: 531px">position</td>
+                <td id="bz:x" class="" style="width: 531px">
+                  controle le positionnement d’un élément par rapport à son
+                  conteneur
+                </td>
+              </tr>
+              <tr id="3dc8d1ff-6d52-4fa5-b00c-c1547ad429bc">
+                <td id="xFFm" class="" style="width: 531px">float</td>
+                <td id="bz:x" class="" style="width: 531px">
+                  fait “flotter” un élément à droite ou à gauche
+                </td>
+              </tr>
+              <tr id="c784d6b5-1dd7-46b7-be2e-2aef13bf4978">
+                <td id="xFFm" class="" style="width: 531px">clear</td>
+                <td id="bz:x" class="" style="width: 531px">
+                  spécifie de quel côté les éléments flottants sont interdits
+                </td>
+              </tr>
+              <tr id="b5db8695-a25b-4b34-9e62-0157035a5365">
+                <td id="xFFm" class="" style="width: 531px">text-decoration</td>
+                <td id="bz:x" class="" style="width: 531px">
+                  ajouter ou supprimer la “décoration” du texte (souligné,
+                  barré, etc.)
+                </td>
+              </tr>
+              <tr id="19e6a676-6d67-4a43-a35b-0fcbc7e01e1a">
+                <td id="xFFm" class="" style="width: 531px">line-height</td>
+                <td id="bz:x" class="" style="width: 531px">
+                  détermine la hauteur de ligne dans un élément
+                </td>
+              </tr>
+              <tr id="13f3fb0e-200c-4fc3-8548-163b144bddde">
+                <td id="xFFm" class="" style="width: 531px">overflow</td>
+                <td id="bz:x" class="" style="width: 531px">
+                  spécifié la gestion du dépassement de contenu
+                </td>
+              </tr>
+              <tr id="3253ac31-8c53-429e-ae0d-4cf3d3c4b4d6">
+                <td id="xFFm" class="" style="width: 531px">box-shadow</td>
+                <td id="bz:x" class="" style="width: 531px">
+                  ajoute une ombre à la boite d’un élément
+                </td>
+              </tr>
+              <tr id="64377081-891a-43ff-8c60-c0b99b34bc92">
+                <td id="xFFm" class="" style="width: 531px">transition</td>
+                <td id="bz:x" class="" style="width: 531px">
+                  crée une transition entre les états d’un élément
+                </td>
+              </tr>
+              <tr id="ba001849-4035-459d-8b1e-08ea97d35ca0">
+                <td id="xFFm" class="" style="width: 531px">media queries</td>
+                <td id="bz:x" class="" style="width: 531px">
+                  adapte le style en fonction des caractéristiques du
+                  périphérique (ordinateur, tablette, mobile, etc.)
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <h1 id="0909630b-34e4-4e17-83fa-837baddab561" class="">
+            Les codes couleur
+          </h1>
+          <p id="008042e7-5728-45f8-b480-ed900228659e" class="">
+            En HTML, CSS et dans le monde de l’informatique en général, les
+            couleurs sont codées. Cela permet d’obtenir précisément une couleur,
+            tout en restant simple, compacte et surtout standard. Cela est
+            possible en décomposant la lumière en ses 3 couleur primaires : le
+            <mark class="highlight-red"
+              ><mark class="highlight-red_background">rouge</mark></mark
+            >, le
+            <mark class="highlight-teal"
+              ><mark class="highlight-teal_background">vert</mark></mark
+            >
+            et le
+            <mark class="highlight-blue"
+              ><mark class="highlight-blue_background">bleu</mark></mark
+            >. Il s’agit des couleurs primaires en physique. En impression
+            couleur, les couleurs primaires sont le jaune, le cyan et le magenta
+            et en peinture, ce sont le rouge, le bleu et le jaune. Pour bien
+            comprendre le système de codage des couleurs, il faut d’abord
+            comprendre le comptage hexadécimal. Et pour mieux comprendre le
+            comptage en hexadécimal, il est plus facile de commencer avec le
+            comptage en binaire.
+          </p>
+          <figure
+            id="68df84d5-947f-4890-a020-de536dd22ebc"
+            class="link-to-page"
+          >
+            <a
+              href="https://www.notion.so/Compter-en-binaire-68df84d5947f4890a020de536dd22ebc?pvs=21"
+              ><span class="icon">🔟</span>Compter en binaire</a
+            >
+          </figure>
+          <figure
+            id="b5ffd7e0-1aa3-461c-b884-4a23b056db6a"
+            class="link-to-page"
+          >
+            <a
+              href="https://www.notion.so/Compter-en-hexad-cimal-b5ffd7e01aa3461cb8844a23b056db6a?pvs=21"
+              ><span class="icon">🔢</span>Compter en hexadécimal</a
+            >
+          </figure>
+          <p id="a22ee1a4-7061-4de5-ad7a-d14ced4e2538" class="">
+            Les couleur primaires sont donc chacune divisées en 256 teintes
+            différentes, de la moins intense (0) à la plus intense (255). La
+            notation RGB signifie Red Green Blue (RVB pour Rouge Vert Bleu en
+            français). Le code couleur correspond à une série de chiffres
+            indiquant la quantité de rouge, de vert puis de bleu, le tout
+            précédé du symbole <code>#</code>. En décimal, cela donne donc cette
+            structure : <code>#</code
+            ><mark class="highlight-red"><code>124</code></mark
+            ><mark class="highlight-teal"><code>056</code></mark
+            ><mark class="highlight-blue"><code>244</code></mark
+            ><mark class="highlight-default"
+              >. Pas très pratique à utiliser…</mark
+            >
+          </p>
+          <p id="c1981acd-730b-4ba2-aaab-42ad35c64b2a" class="">
+            En réalité, l’utilisation de l’hexadécimal permet de réduire le
+            nombre de caractères à utiliser. Ainsi, pour obtenir l’ensemble des
+            chiffres de 0 à 255 (256 nombres différents) en hexadécimal, il ne
+            faut que 2 caractères (contre 3 en décimal). En effet, 255
+            <style>
+              @import url("https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css");
+            </style>
+            <span
+              data-token-index="0"
+              contenteditable="false"
+              class="notion-text-equation-token"
+              style="
+                user-select: all;
+                -webkit-user-select: all;
+                -moz-user-select: all;
+              "
+            >
+              <span></span>
+              <span>
+                <span class="katex">
+                  <span class="katex-mathml">
+                    <math xmlns="http://www.w3.org/1998/Math/MathML">
+                      <semantics>
+                        <mrow>
+                          <msub>
+                            <mrow></mrow>
+                            <mn>10</mn>
+                          </msub>
+                        </mrow>
+                        <annotation encoding="application/x-tex"
+                          >_{10}</annotation
+                        >
+                      </semantics>
+                    </math>
+                  </span>
+                  <span class="katex-html" aria-hidden="true">
+                    <span class="base">
+                      <span
+                        class="strut"
+                        style="height: 0.4511em; vertical-align: -0.15em"
+                      >
+                      </span>
+                      <span class="mord">
+                        <span></span>
+                        <span class="msupsub">
+                          <span class="vlist-t vlist-t2">
+                            <span class="vlist-r">
+                              <span class="vlist" style="height: 0.3011em">
+                                <span
+                                  style="top: -2.55em; margin-right: 0.05em"
+                                >
+                                  <span
+                                    class="pstrut"
+                                    style="height: 2.7em"
+                                  ></span>
+                                  <span class="sizing reset-size6 size3 mtight">
+                                    <span class="mord mtight">
+                                      <span class="mord mtight">10</span>
+                                    </span>
+                                  </span>
+                                </span>
+                              </span>
+                              <span class="vlist-s">​</span>
+                            </span>
+                            <span class="vlist-r">
+                              <span class="vlist" style="height: 0.15em">
+                                <span></span>
+                              </span>
+                            </span>
+                          </span>
+                        </span>
+                      </span>
+                    </span>
+                  </span>
+                </span>
+              </span>
+              <span>﻿</span>
+            </span>
+            se note ff
+            <style>
+              @import url("https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css");
+            </style>
+            <span
+              data-token-index="0"
+              contenteditable="false"
+              class="notion-text-equation-token"
+              style="
+                user-select: all;
+                -webkit-user-select: all;
+                -moz-user-select: all;
+              "
+            >
+              <span></span>
+              <span>
+                <span class="katex">
+                  <span class="katex-mathml">
+                    <math xmlns="http://www.w3.org/1998/Math/MathML">
+                      <semantics>
+                        <mrow>
+                          <msub>
+                            <mrow></mrow>
+                            <mn>16</mn>
+                          </msub>
+                        </mrow>
+                        <annotation encoding="application/x-tex"
+                          >_{16}</annotation
+                        >
+                      </semantics>
+                    </math>
+                  </span>
+                  <span class="katex-html" aria-hidden="true">
+                    <span class="base">
+                      <span
+                        class="strut"
+                        style="height: 0.4511em; vertical-align: -0.15em"
+                      >
+                      </span>
+                      <span class="mord">
+                        <span></span>
+                        <span class="msupsub">
+                          <span class="vlist-t vlist-t2">
+                            <span class="vlist-r">
+                              <span class="vlist" style="height: 0.3011em">
+                                <span
+                                  style="top: -2.55em; margin-right: 0.05em"
+                                >
+                                  <span
+                                    class="pstrut"
+                                    style="height: 2.7em"
+                                  ></span>
+                                  <span class="sizing reset-size6 size3 mtight">
+                                    <span class="mord mtight">
+                                      <span class="mord mtight">16</span>
+                                    </span>
+                                  </span>
+                                </span>
+                              </span>
+                              <span class="vlist-s">​</span>
+                            </span>
+                            <span class="vlist-r">
+                              <span class="vlist" style="height: 0.15em">
+                                <span></span>
+                              </span>
+                            </span>
+                          </span>
+                        </span>
+                      </span>
+                    </span>
+                  </span>
+                </span>
+              </span>
+              <span>﻿</span> </span
+            >. Le code couleur se transforme donc en <code>#</code
+            ><mark class="highlight-red"><code>7c</code></mark
+            ><mark class="highlight-teal"><code>38</code></mark
+            ><mark class="highlight-blue"><code>f4</code></mark
+            >.
+          </p>
+          <p id="ddaf6b5d-fcb4-4a6b-940c-089c8310b2ac" class="">
+            Voici quelques codes
+          </p>
+          <ul id="3ecf33ff-6e10-4db1-a94d-4b2648dd4140" class="bulleted-list">
+            <li style="list-style-type: disc"></li>
+          </ul>
+          <h1 id="0f25f637-806e-4005-9e52-bae3a908a7dc" class="">
+            Les unités du CSS
+          </h1>
+          <p id="7e29f11a-9c67-44cb-a02a-bd74bec7afc1" class="">
+            En CSS, il existe plusieurs unités pour spécifier les tailles et les
+            distances. Certaines d’entre elles sont plus utilisées que d’autres,
+            pour des raisons d’ergonomie et d’adaptabilité en fonction du
+            support. Ces notions sont essentielles à l’heure actuelles, pour que
+            les sites web soient utilisables aussi bien avec des ordinateurs,
+            des tablettes ou des mobiles.
+          </p>
+          <p id="eb69c52e-a907-426d-a0c3-707abd528625" class="">
+            Voici les différentes unités à connaitre pour ce cours :
+          </p>
+          <table id="b7a7d6e7-dc49-4085-a72b-45d074c8ce68" class="simple-table">
+            <thead class="simple-table-header">
+              <tr id="e87264af-d1c5-4894-91d5-3f7c70e64f69">
+                <th
+                  id="CkeK"
+                  class="simple-table-header-color simple-table-header"
+                  style="width: 531px"
+                >
+                  Unité
+                </th>
+                <th
+                  id="eybL"
+                  class="simple-table-header-color simple-table-header"
+                  style="width: 531px"
+                >
+                  Signification
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="7f0ff6d8-cf69-46a9-bd97-ec9cac9d73ee">
+                <th
+                  id="CkeK"
+                  class="simple-table-header-color simple-table-header"
+                  style="width: 531px"
+                >
+                  px (= Pixel)
+                </th>
+                <td id="eybL" class="" style="width: 531px">
+                  Une unité de mesure fixe qui correspond à un pixel sur
+                  l&#x27;écran. Les pixels sont des unités absolues, ce qui
+                  signifie qu&#x27;ils ne changent pas de taille en fonction de
+                  la taille de l&#x27;écran ou du périphérique.
+                </td>
+              </tr>
+              <tr id="96995841-5e9c-4b42-8db5-7d10b62733e4">
+                <th
+                  id="CkeK"
+                  class="simple-table-header-color simple-table-header"
+                  style="width: 531px"
+                >
+                  % (= Pourcentage)
+                </th>
+                <td id="eybL" class="" style="width: 531px">
+                  Cette unité est relative à la taille du conteneur parent. Par
+                  exemple, si vous définissez la largeur d&#x27;un élément à
+                  50%, cela signifie qu&#x27;il occupera la moitié de la largeur
+                  de son conteneur parent.
+                </td>
+              </tr>
+              <tr id="1277e352-5105-4bfb-bec2-5788ba01a266">
+                <th
+                  id="CkeK"
+                  class="simple-table-header-color simple-table-header"
+                  style="width: 531px"
+                >
+                  em
+                </th>
+                <td id="eybL" class="" style="width: 531px">
+                  Une unité relative à la taille de la police de l&#x27;élément.
+                  Par exemple, si la taille de police d&#x27;un élément est de
+                  16px, <code><strong>1em</strong></code> équivaudra à 16px,
+                  <code><strong>2em</strong></code> équivaudra à 32px, et ainsi
+                  de suite.
+                </td>
+              </tr>
+              <tr id="ca220e88-8e21-49b2-8e70-8bacc7b324a5">
+                <th
+                  id="CkeK"
+                  class="simple-table-header-color simple-table-header"
+                  style="width: 531px"
+                >
+                  rem
+                </th>
+                <td id="eybL" class="" style="width: 531px">
+                  Une unité relative à la taille de la police de l&#x27;élément
+                  racine (<code><strong>&lt;html&gt;</strong></code
+                  >). Cela signifie que
+                  <code><strong>1rem</strong></code> équivaut à la taille de la
+                  police de l&#x27;élément racine, tandis que
+                  <code><strong>2rem</strong></code> équivaut à deux fois la
+                  taille de la police de l&#x27;élément racine.
+                </td>
+              </tr>
+              <tr id="74f8c02f-b3be-4c20-b734-17feb4814edc">
+                <th
+                  id="CkeK"
+                  class="simple-table-header-color simple-table-header"
+                  style="width: 531px"
+                >
+                  vw (= Viewport Width)
+                </th>
+                <td id="eybL" class="" style="width: 531px">
+                  Une unité relative à la largeur de la fenêtre
+                  d&#x27;affichage. <code><strong>1vw</strong></code> équivaut à
+                  1% de la largeur de la fenêtre d&#x27;affichage.
+                </td>
+              </tr>
+              <tr id="07a616ce-6d1e-4a17-9f71-b4b92ce177ba">
+                <th
+                  id="CkeK"
+                  class="simple-table-header-color simple-table-header"
+                  style="width: 531px"
+                >
+                  vh (= Viewport Height)
+                </th>
+                <td id="eybL" class="" style="width: 531px">
+                  Une unité relative à la hauteur de la fenêtre
+                  d&#x27;affichage. <code><strong>1vh</strong></code> équivaut à
+                  1% de la hauteur de la fenêtre d&#x27;affichage.
+                </td>
+              </tr>
+              <tr id="7805e5d3-d195-4b8a-ace3-985356df0286">
+                <th
+                  id="CkeK"
+                  class="simple-table-header-color simple-table-header"
+                  style="width: 531px"
+                >
+                  vmin (= Viewport Minimum)
+                </th>
+                <td id="eybL" class="" style="width: 531px">
+                  Une unité relative au plus petit des deux entre
+                  <code><strong>vw</strong></code> et
+                  <code><strong>vh</strong></code
+                  >.
+                </td>
+              </tr>
+              <tr id="792177c7-4cfe-4514-b1c3-0713935331eb">
+                <th
+                  id="CkeK"
+                  class="simple-table-header-color simple-table-header"
+                  style="width: 531px"
+                >
+                  vmax (= Viewport Maximum)
+                </th>
+                <td id="eybL" class="" style="width: 531px">
+                  Une unité relative au plus grand des deux entre
+                  <code><strong>vw</strong></code> et
+                  <code><strong>vh</strong></code
+                  >.
+                </td>
+              </tr>
+              <tr id="10eea9c8-6f84-4573-866d-4c9ae8aebdb3">
+                <th
+                  id="CkeK"
+                  class="simple-table-header-color simple-table-header"
+                  style="width: 531px"
+                >
+                  cm (= Centimètre)
+                </th>
+                <td id="eybL" class="" style="width: 531px">
+                  Une unité de mesure absolue correspondant à un centimètre.
+                </td>
+              </tr>
+              <tr id="c61607cb-f4bc-4111-a818-ec1cb1b0e904">
+                <th
+                  id="CkeK"
+                  class="simple-table-header-color simple-table-header"
+                  style="width: 531px"
+                >
+                  mm (= Millimètre)
+                </th>
+                <td id="eybL" class="" style="width: 531px">
+                  Une unité de mesure absolue correspondant à un millimètre.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <p id="2948c69d-8ed5-4228-bd34-e5f7c85009e6" class="">
+            En HTML et CSS, un &quot;conteneur parent&quot; fait référence à un
+            élément qui englobe d&#x27;autres éléments à l&#x27;intérieur de la
+            structure HTML. Ce conteneur parent peut être n&#x27;importe quel
+            élément HTML, tel qu&#x27;une
+            <code><strong>&lt;div&gt;</strong></code
+            >, un <code><strong>&lt;section&gt;</strong></code
+            >, un <code><strong>&lt;article&gt;</strong></code
+            >, etc. L&#x27;idée principale est que cet élément est le parent de
+            ses enfants directs.
+          </p>
+          <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"
+            integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+          ></script>
+          <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css"
+            integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+          />
+          <pre
+            id="f83e8d40-6144-4fa8-a402-0ff340246995"
+            class="code"
+          ><code class="language-HTML">&lt;div class=&quot;container&quot;&gt;
     &lt;h1&gt;Titre&lt;/h1&gt;
     &lt;p&gt;Paragraphe 1&lt;/p&gt;
     &lt;p&gt;Paragraphe 2&lt;/p&gt;
-&lt;/div&gt;</code></pre><p id="2070d6be-0cab-4922-b145-60b29b74a6c2" class="">La <code><strong>&lt;div class=&quot;container&quot;&gt;</strong></code> est le conteneur parent des éléments <code><strong>&lt;h1&gt;</strong></code>, <code><strong>&lt;p&gt;</strong></code> et <code><strong>&lt;p&gt;</strong></code> qu&#x27;elle englobe. En CSS, vous pouvez cibler ce conteneur parent et appliquer des styles à tous ses enfants à l&#x27;aide de sélecteurs CSS appropriés.</p><p id="be60c94a-728f-4176-8f35-d1ac100cf64b" class="">Les conteneurs parents sont souvent utilisés pour regrouper des éléments connexes, créer des mises en page, définir des sections de contenu et appliquer des styles de mise en forme. Ils sont essentiels pour structurer efficacement une page web et maintenir un code HTML et CSS organisé et maintenable.</p><p id="e907026c-6ce1-41c5-adaf-470cb8e87160" class="">En HTML, l&#x27;élément racine fait référence à l&#x27;élément le plus haut dans la structure de la page web. Cet élément est généralement <code><strong>&lt;html&gt;</strong></code> et représente le conteneur de tout le contenu HTML de la page. Voici à quoi ressemble généralement la structure d&#x27;une page HTML de base :</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1489d846-3484-4a9d-8cff-c95a1f1b4e1b" class="code"><code class="language-HTML">&lt;!DOCTYPE html&gt;
+&lt;/div&gt;</code></pre>
+          <p id="2070d6be-0cab-4922-b145-60b29b74a6c2" class="">
+            La
+            <code
+              ><strong>&lt;div class=&quot;container&quot;&gt;</strong></code
+            >
+            est le conteneur parent des éléments
+            <code><strong>&lt;h1&gt;</strong></code
+            >, <code><strong>&lt;p&gt;</strong></code> et
+            <code><strong>&lt;p&gt;</strong></code> qu&#x27;elle englobe. En
+            CSS, vous pouvez cibler ce conteneur parent et appliquer des styles
+            à tous ses enfants à l&#x27;aide de sélecteurs CSS appropriés.
+          </p>
+          <p id="be60c94a-728f-4176-8f35-d1ac100cf64b" class="">
+            Les conteneurs parents sont souvent utilisés pour regrouper des
+            éléments connexes, créer des mises en page, définir des sections de
+            contenu et appliquer des styles de mise en forme. Ils sont
+            essentiels pour structurer efficacement une page web et maintenir un
+            code HTML et CSS organisé et maintenable.
+          </p>
+          <p id="e907026c-6ce1-41c5-adaf-470cb8e87160" class="">
+            En HTML, l&#x27;élément racine fait référence à l&#x27;élément le
+            plus haut dans la structure de la page web. Cet élément est
+            généralement <code><strong>&lt;html&gt;</strong></code> et
+            représente le conteneur de tout le contenu HTML de la page. Voici à
+            quoi ressemble généralement la structure d&#x27;une page HTML de
+            base :
+          </p>
+          <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"
+            integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+          ></script>
+          <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css"
+            integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+          />
+          <pre
+            id="1489d846-3484-4a9d-8cff-c95a1f1b4e1b"
+            class="code"
+          ><code class="language-HTML">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;fr&quot;&gt;
 	&lt;head&gt;
 	    &lt;meta charset=&quot;UTF-8&quot;&gt;
@@ -707,14 +1575,325 @@ blockquote {
 	    &lt;!-- Tout le contenu de la page HTML est placé ici --&gt;
 	    &lt;!-- Cela peut inclure des éléments tels que des balises &lt;header&gt;, &lt;main&gt;, &lt;footer&gt;, etc. --&gt;
 	&lt;/body&gt;
-&lt;/html&gt;</code></pre><p id="acec76e6-cec5-4a4a-a305-1ea0ac77009a" class="">Dans cet exemple, <code><strong>&lt;html&gt;</strong></code> est l&#x27;élément racine. Il englobe tout le contenu de la page, y compris l&#x27;en-tête (<code><strong>&lt;head&gt;</strong></code>) et le corps (<code><strong>&lt;body&gt;</strong></code>). Les éléments <code><strong>&lt;head&gt;</strong></code> et <code><strong>&lt;body&gt;</strong></code> sont des enfants directs de l&#x27;élément racine <code><strong>&lt;html&gt;</strong></code>. L&#x27;élément racine peut contenir des métadonnées sur la page, des liens vers des feuilles de style CSS, des scripts JavaScript, des informations sur la langue (<code><strong>lang</strong></code>), etc.</p><h1 id="a5cf468f-e717-44ed-a086-0a306d120760" class="">Les conteneurs en HTML</h1><p id="2103acf2-b6ec-40a1-9937-ddd37d8283db" class="">Les conteneurs en HTML sont des éléments qui servent à structurer le contenu d&#x27;une page web. Ils peuvent encapsuler d&#x27;autres éléments HTML pour appliquer un style, une mise en page ou des comportements spécifiques.</p><table id="8b1b7595-156a-45b2-848e-db66070db986" class="simple-table"><thead class="simple-table-header"><tr id="8411b6aa-d0e2-4e94-adfe-f64dcc38eca2"><th id="jGOk" class="simple-table-header-color simple-table-header" style="width:531px">Balise</th><th id="rgiv" class="simple-table-header-color simple-table-header" style="width:531px">Fonction</th></tr></thead><tbody><tr id="6884857d-962a-4653-bdff-bf2dacef86f1"><td id="jGOk" class="" style="width:531px"><code>&lt;div&gt;</code></td><td id="rgiv" class="" style="width:531px">C&#x27;est le conteneur le plus générique. Il est utilisé pour grouper des éléments afin de les formater avec du CSS ou de manipuler leur comportement avec JavaScript. Le <code><strong>&lt;div&gt;</strong></code> n&#x27;a pas de signification sémantique en soi.</td></tr><tr id="1affc8b0-23c2-44dc-8c22-0af6e777e964"><td id="jGOk" class="" style="width:531px"><code>&lt;section&gt;</code></td><td id="rgiv" class="" style="width:531px">Représente une section générique d&#x27;un document ou d&#x27;une application, généralement avec un thème ou une fonctionnalité cohérente, souvent accompagnée d&#x27;un titre.</td></tr><tr id="11a26a1d-d544-4d46-87ae-b78f87c2f28a"><td id="jGOk" class="" style="width:531px"><code>&lt;header&gt;</code></td><td id="rgiv" class="" style="width:531px">Sert à définir l&#x27;en-tête d&#x27;une section ou d&#x27;une page. Il peut contenir des éléments introductifs ou de navigation, comme des logos, des titres, des menus de navigation.</td></tr><tr id="c696a515-800a-42e9-afda-79246a9f76a7"><td id="jGOk" class="" style="width:531px"><code>&lt;footer&gt;</code></td><td id="rgiv" class="" style="width:531px">Utilisé pour le pied de page d&#x27;une section ou d&#x27;une page. Il contient souvent des informations comme les droits d&#x27;auteur, des liens vers des mentions légales, des contacts, etc.</td></tr><tr id="63dfebb6-b0e0-47c7-b73d-58e84b7778bb"><td id="jGOk" class="" style="width:531px"><code>&lt;nav&gt;</code></td><td id="rgiv" class="" style="width:531px">Spécifiquement destiné à la navigation. Il englobe un ensemble de liens de navigation, tels que des menus, des tables des matières, des index.</td></tr><tr id="7b77c4af-268a-4712-8da9-708d3300ce0c"><td id="jGOk" class="" style="width:531px"><code>&lt;article&gt;</code></td><td id="rgiv" class="" style="width:531px">Destiné à encapsuler un contenu autonome qui pourrait être distribué indépendamment du reste du site, comme des articles de blog, des posts de forum, des commentaires.</td></tr><tr id="a7b9de47-0b59-45b1-a147-c3cbfbf872f0"><td id="jGOk" class="" style="width:531px"><code>&lt;aside&gt;</code></td><td id="rgiv" class="" style="width:531px">Utilisé pour marquer des contenus tangentiels au contenu principal, comme des barres latérales, des encadrés, des publicités.</td></tr><tr id="c762a0ab-92d0-4c2e-8934-afbb82b69aea"><td id="jGOk" class="" style="width:531px"><code>&lt;main&gt;</code></td><td id="rgiv" class="" style="width:531px">Spécifie le contenu principal d&#x27;un document. Il ne doit y avoir qu&#x27;un seul élément <code><strong>&lt;main&gt;</strong></code> par document, qui contient le contenu unique et central de la page.</td></tr></tbody></table><p id="baa447ab-23a1-481a-b9ca-f0a0ca7bb3b8" class="">Chacun de ces conteneurs a sa propre signification sémantique et doit être utilisé selon le type de contenu qu&#x27;il est censé représenter, ce qui aide à améliorer l&#x27;accessibilité du web et le référencement naturel (SEO).</p><h1 id="6687c5b4-2bef-42a3-9b8d-e45e97e584a4" class="">ID et classes</h1><p id="6602650e-bd7d-4602-b58a-07c4e9728e07" class="">Les ID et les classes sont des sélecteurs utilisés en HTML et CSS pour identifier et appliquer des styles spécifiques à des éléments de la page web. Bien qu&#x27;ils servent tous deux à personnaliser l&#x27;apparence et le comportement des éléments HTML, ils ont des caractéristiques et des utilisations distinctes.</p><h2 id="da25e385-1e79-48a5-9db7-0d3605f1b305" class=""><strong><strong>ID</strong></strong></h2><ul id="38659a1d-ae98-4e13-91a9-df83773eb969" class="bulleted-list"><li style="list-style-type:disc">Un ID est un identifiant unique qui ne peut être utilisé qu&#x27;avec un seul élément HTML sur une page. Cela signifie qu&#x27;aucun autre élément sur cette page ne peut avoir le même ID.</li></ul><ul id="177002cf-467b-475d-9968-c9d9a578b274" class="bulleted-list"><li style="list-style-type:disc">L&#x27;ID est précédé du symbole <code><strong>#</strong></code> lorsqu&#x27;il est référencé dans un fichier CSS ou JavaScript.</li></ul><ul id="934d894d-faa7-4de8-b63c-165c597a8558" class="bulleted-list"><li style="list-style-type:disc">Utiliser un ID quand vous avez besoin de cibler un élément spécifique qui n&#x27;apparaît qu&#x27;une fois dans le document.</li></ul><p id="a999b941-d189-4e0c-90bd-cf44fd5b124f" class=""><strong>Exemple d&#x27;ID :</strong></p><p id="b9584556-5c5b-4894-91b9-e664d4bd6805" class="">HTML :</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="35111add-ad45-4177-9b27-49ec1cbeefaf" class="code"><code class="language-HTML" style="white-space:pre-wrap;word-break:break-all">&lt;div id=&quot;header&quot;&gt;En-tête du site&lt;/div&gt;</code></pre><p id="7563e141-812d-439b-9ab1-5e00411374db" class="">CSS :</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="60e50acd-4aa4-47ff-b428-84f502f08f56" class="code"><code class="language-CSS" style="white-space:pre-wrap;word-break:break-all">#header {
+&lt;/html&gt;</code></pre>
+          <p id="acec76e6-cec5-4a4a-a305-1ea0ac77009a" class="">
+            Dans cet exemple, <code><strong>&lt;html&gt;</strong></code> est
+            l&#x27;élément racine. Il englobe tout le contenu de la page, y
+            compris l&#x27;en-tête (<code><strong>&lt;head&gt;</strong></code
+            >) et le corps (<code><strong>&lt;body&gt;</strong></code
+            >). Les éléments <code><strong>&lt;head&gt;</strong></code> et
+            <code><strong>&lt;body&gt;</strong></code> sont des enfants directs
+            de l&#x27;élément racine <code><strong>&lt;html&gt;</strong></code
+            >. L&#x27;élément racine peut contenir des métadonnées sur la page,
+            des liens vers des feuilles de style CSS, des scripts JavaScript,
+            des informations sur la langue (<code><strong>lang</strong></code
+            >), etc.
+          </p>
+          <h1 id="a5cf468f-e717-44ed-a086-0a306d120760" class="">
+            Les conteneurs en HTML
+          </h1>
+          <p id="2103acf2-b6ec-40a1-9937-ddd37d8283db" class="">
+            Les conteneurs en HTML sont des éléments qui servent à structurer le
+            contenu d&#x27;une page web. Ils peuvent encapsuler d&#x27;autres
+            éléments HTML pour appliquer un style, une mise en page ou des
+            comportements spécifiques.
+          </p>
+          <table id="8b1b7595-156a-45b2-848e-db66070db986" class="simple-table">
+            <thead class="simple-table-header">
+              <tr id="8411b6aa-d0e2-4e94-adfe-f64dcc38eca2">
+                <th
+                  id="jGOk"
+                  class="simple-table-header-color simple-table-header"
+                  style="width: 531px"
+                >
+                  Balise
+                </th>
+                <th
+                  id="rgiv"
+                  class="simple-table-header-color simple-table-header"
+                  style="width: 531px"
+                >
+                  Fonction
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="6884857d-962a-4653-bdff-bf2dacef86f1">
+                <td id="jGOk" class="" style="width: 531px">
+                  <code>&lt;div&gt;</code>
+                </td>
+                <td id="rgiv" class="" style="width: 531px">
+                  C&#x27;est le conteneur le plus générique. Il est utilisé pour
+                  grouper des éléments afin de les formater avec du CSS ou de
+                  manipuler leur comportement avec JavaScript. Le
+                  <code><strong>&lt;div&gt;</strong></code> n&#x27;a pas de
+                  signification sémantique en soi.
+                </td>
+              </tr>
+              <tr id="1affc8b0-23c2-44dc-8c22-0af6e777e964">
+                <td id="jGOk" class="" style="width: 531px">
+                  <code>&lt;section&gt;</code>
+                </td>
+                <td id="rgiv" class="" style="width: 531px">
+                  Représente une section générique d&#x27;un document ou
+                  d&#x27;une application, généralement avec un thème ou une
+                  fonctionnalité cohérente, souvent accompagnée d&#x27;un titre.
+                </td>
+              </tr>
+              <tr id="11a26a1d-d544-4d46-87ae-b78f87c2f28a">
+                <td id="jGOk" class="" style="width: 531px">
+                  <code>&lt;header&gt;</code>
+                </td>
+                <td id="rgiv" class="" style="width: 531px">
+                  Sert à définir l&#x27;en-tête d&#x27;une section ou d&#x27;une
+                  page. Il peut contenir des éléments introductifs ou de
+                  navigation, comme des logos, des titres, des menus de
+                  navigation.
+                </td>
+              </tr>
+              <tr id="c696a515-800a-42e9-afda-79246a9f76a7">
+                <td id="jGOk" class="" style="width: 531px">
+                  <code>&lt;footer&gt;</code>
+                </td>
+                <td id="rgiv" class="" style="width: 531px">
+                  Utilisé pour le pied de page d&#x27;une section ou d&#x27;une
+                  page. Il contient souvent des informations comme les droits
+                  d&#x27;auteur, des liens vers des mentions légales, des
+                  contacts, etc.
+                </td>
+              </tr>
+              <tr id="63dfebb6-b0e0-47c7-b73d-58e84b7778bb">
+                <td id="jGOk" class="" style="width: 531px">
+                  <code>&lt;nav&gt;</code>
+                </td>
+                <td id="rgiv" class="" style="width: 531px">
+                  Spécifiquement destiné à la navigation. Il englobe un ensemble
+                  de liens de navigation, tels que des menus, des tables des
+                  matières, des index.
+                </td>
+              </tr>
+              <tr id="7b77c4af-268a-4712-8da9-708d3300ce0c">
+                <td id="jGOk" class="" style="width: 531px">
+                  <code>&lt;article&gt;</code>
+                </td>
+                <td id="rgiv" class="" style="width: 531px">
+                  Destiné à encapsuler un contenu autonome qui pourrait être
+                  distribué indépendamment du reste du site, comme des articles
+                  de blog, des posts de forum, des commentaires.
+                </td>
+              </tr>
+              <tr id="a7b9de47-0b59-45b1-a147-c3cbfbf872f0">
+                <td id="jGOk" class="" style="width: 531px">
+                  <code>&lt;aside&gt;</code>
+                </td>
+                <td id="rgiv" class="" style="width: 531px">
+                  Utilisé pour marquer des contenus tangentiels au contenu
+                  principal, comme des barres latérales, des encadrés, des
+                  publicités.
+                </td>
+              </tr>
+              <tr id="c762a0ab-92d0-4c2e-8934-afbb82b69aea">
+                <td id="jGOk" class="" style="width: 531px">
+                  <code>&lt;main&gt;</code>
+                </td>
+                <td id="rgiv" class="" style="width: 531px">
+                  Spécifie le contenu principal d&#x27;un document. Il ne doit y
+                  avoir qu&#x27;un seul élément
+                  <code><strong>&lt;main&gt;</strong></code> par document, qui
+                  contient le contenu unique et central de la page.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <p id="baa447ab-23a1-481a-b9ca-f0a0ca7bb3b8" class="">
+            Chacun de ces conteneurs a sa propre signification sémantique et
+            doit être utilisé selon le type de contenu qu&#x27;il est censé
+            représenter, ce qui aide à améliorer l&#x27;accessibilité du web et
+            le référencement naturel (SEO).
+          </p>
+          <h1 id="6687c5b4-2bef-42a3-9b8d-e45e97e584a4" class="">
+            ID et classes
+          </h1>
+          <p id="6602650e-bd7d-4602-b58a-07c4e9728e07" class="">
+            Les ID et les classes sont des sélecteurs utilisés en HTML et CSS
+            pour identifier et appliquer des styles spécifiques à des éléments
+            de la page web. Bien qu&#x27;ils servent tous deux à personnaliser
+            l&#x27;apparence et le comportement des éléments HTML, ils ont des
+            caractéristiques et des utilisations distinctes.
+          </p>
+          <h2 id="da25e385-1e79-48a5-9db7-0d3605f1b305" class="">
+            <strong><strong>ID</strong></strong>
+          </h2>
+          <ul id="38659a1d-ae98-4e13-91a9-df83773eb969" class="bulleted-list">
+            <li style="list-style-type: disc">
+              Un ID est un identifiant unique qui ne peut être utilisé
+              qu&#x27;avec un seul élément HTML sur une page. Cela signifie
+              qu&#x27;aucun autre élément sur cette page ne peut avoir le même
+              ID.
+            </li>
+          </ul>
+          <ul id="177002cf-467b-475d-9968-c9d9a578b274" class="bulleted-list">
+            <li style="list-style-type: disc">
+              L&#x27;ID est précédé du symbole
+              <code><strong>#</strong></code> lorsqu&#x27;il est référencé dans
+              un fichier CSS ou JavaScript.
+            </li>
+          </ul>
+          <ul id="934d894d-faa7-4de8-b63c-165c597a8558" class="bulleted-list">
+            <li style="list-style-type: disc">
+              Utiliser un ID quand vous avez besoin de cibler un élément
+              spécifique qui n&#x27;apparaît qu&#x27;une fois dans le document.
+            </li>
+          </ul>
+          <p id="a999b941-d189-4e0c-90bd-cf44fd5b124f" class="">
+            <strong>Exemple d&#x27;ID :</strong>
+          </p>
+          <p id="b9584556-5c5b-4894-91b9-e664d4bd6805" class="">HTML :</p>
+          <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"
+            integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+          ></script>
+          <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css"
+            integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+          />
+          <pre
+            id="35111add-ad45-4177-9b27-49ec1cbeefaf"
+            class="code"
+          ><code class="language-HTML" style="white-space:pre-wrap;word-break:break-all">&lt;div id=&quot;header&quot;&gt;En-tête du site&lt;/div&gt;</code></pre>
+          <p id="7563e141-812d-439b-9ab1-5e00411374db" class="">CSS :</p>
+          <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"
+            integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+          ></script>
+          <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css"
+            integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+          />
+          <pre
+            id="60e50acd-4aa4-47ff-b428-84f502f08f56"
+            class="code"
+          ><code class="language-CSS" style="white-space:pre-wrap;word-break:break-all">#header {
     background-color: #f0f0f0;
     color: #333;
     padding: 20px;
     text-align: center;
-}</code></pre><p id="702af716-e484-4d89-8761-c22433c69d75" class="">Dans cet exemple, l&#x27;ID <code><strong>header</strong></code> est utilisé pour appliquer un style spécifique à l&#x27;élément <code><strong>div</strong></code> qui représente l&#x27;en-tête du site web.</p><h2 id="a7d0d2e6-4e10-4e6c-a53f-e586ce859645" class=""><strong>Classes</strong></h2><ul id="b1549291-6778-41da-855f-02b57eacb43e" class="bulleted-list"><li style="list-style-type:disc">Une classe peut être utilisée sur plusieurs éléments HTML sur une même page, ce qui la rend utile pour appliquer un style cohérent à différents éléments.</li></ul><ul id="258e4700-1642-49ca-82a3-cadf480bb67b" class="bulleted-list"><li style="list-style-type:disc">La classe est précédée du symbole <code><strong>.</strong></code> lorsqu&#x27;elle est référencée dans un fichier CSS.</li></ul><ul id="62f5b77f-1432-4543-8847-955c35800e62" class="bulleted-list"><li style="list-style-type:disc">Utiliser une classe quand vous voulez que plusieurs éléments partagent le même style.</li></ul><p id="3fa93ffe-d5f9-4bae-a906-2fc35afc010e" class=""><strong>Exemple de classe :</strong></p><p id="cf922f3d-f67b-4bfb-a157-714aac195c6c" class="">HTML :</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1ffba48d-f336-4596-9b56-f9fa84a86004" class="code"><code class="language-HTML" style="white-space:pre-wrap;word-break:break-all">&lt;div class=&quot;box&quot;&gt;Contenu 1&lt;/div&gt;
-&lt;div class=&quot;box&quot;&gt;Contenu 2&lt;/div&gt;</code></pre><p id="813c3b05-ea58-4830-a925-a7d035fe45bc" class="">CSS :</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="f25db039-aaa0-41a4-a4de-b6552edc19c7" class="code"><code class="language-CSS" style="white-space:pre-wrap;word-break:break-all">.box {
+}</code></pre>
+          <p id="702af716-e484-4d89-8761-c22433c69d75" class="">
+            Dans cet exemple, l&#x27;ID <code><strong>header</strong></code> est
+            utilisé pour appliquer un style spécifique à l&#x27;élément
+            <code><strong>div</strong></code> qui représente l&#x27;en-tête du
+            site web.
+          </p>
+          <h2 id="a7d0d2e6-4e10-4e6c-a53f-e586ce859645" class="">
+            <strong>Classes</strong>
+          </h2>
+          <ul id="b1549291-6778-41da-855f-02b57eacb43e" class="bulleted-list">
+            <li style="list-style-type: disc">
+              Une classe peut être utilisée sur plusieurs éléments HTML sur une
+              même page, ce qui la rend utile pour appliquer un style cohérent à
+              différents éléments.
+            </li>
+          </ul>
+          <ul id="258e4700-1642-49ca-82a3-cadf480bb67b" class="bulleted-list">
+            <li style="list-style-type: disc">
+              La classe est précédée du symbole
+              <code><strong>.</strong></code> lorsqu&#x27;elle est référencée
+              dans un fichier CSS.
+            </li>
+          </ul>
+          <ul id="62f5b77f-1432-4543-8847-955c35800e62" class="bulleted-list">
+            <li style="list-style-type: disc">
+              Utiliser une classe quand vous voulez que plusieurs éléments
+              partagent le même style.
+            </li>
+          </ul>
+          <p id="3fa93ffe-d5f9-4bae-a906-2fc35afc010e" class="">
+            <strong>Exemple de classe :</strong>
+          </p>
+          <p id="cf922f3d-f67b-4bfb-a157-714aac195c6c" class="">HTML :</p>
+          <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"
+            integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+          ></script>
+          <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css"
+            integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+          />
+          <pre
+            id="1ffba48d-f336-4596-9b56-f9fa84a86004"
+            class="code"
+          ><code class="language-HTML" style="white-space:pre-wrap;word-break:break-all">&lt;div class=&quot;box&quot;&gt;Contenu 1&lt;/div&gt;
+&lt;div class=&quot;box&quot;&gt;Contenu 2&lt;/div&gt;</code></pre>
+          <p id="813c3b05-ea58-4830-a925-a7d035fe45bc" class="">CSS :</p>
+          <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"
+            integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+          ></script>
+          <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css"
+            integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+          />
+          <pre
+            id="f25db039-aaa0-41a4-a4de-b6552edc19c7"
+            class="code"
+          ><code class="language-CSS" style="white-space:pre-wrap;word-break:break-all">.box {
     border: 1px solid #ddd;
     padding: 10px;
     margin: 5px;
-}</code></pre><p id="33b18696-1d27-44ec-9e5b-f0079e213532" class="">Dans cet exemple, la classe <code><strong>box</strong></code> est utilisée pour appliquer un style de bordure, de marge et de padding identique à deux éléments <code><strong>div</strong></code> différents.</p><h2 id="0ab5c079-0480-4828-ba49-a59efb1dd200" class=""><strong>Différence principale</strong></h2><ul id="77a45157-62f6-432d-9a07-d0fc34420a30" class="bulleted-list"><li style="list-style-type:disc"><strong>Unicité</strong> : Un ID est unique à chaque page et ne peut être assigné qu&#x27;à un seul élément. Une classe peut être assignée à plusieurs éléments sur la même page.</li></ul><ul id="9b95c84c-3d0c-4759-bc36-b7f4f9612a60" class="bulleted-list"><li style="list-style-type:disc"><strong>Usage</strong> : Les ID sont utiles pour cibler des éléments spécifiques pour les scripts et le style, tandis que les classes sont idéales pour appliquer un style cohérent à plusieurs éléments.</li></ul><p id="8e92f3cd-dd72-4ce7-ab2d-f248e890af76" class="">Les ID et les classes sont des outils puissants pour la conception web, permettant de créer des styles précis et de manipuler des éléments avec JavaScript. Utilisés judicieusement, ils facilitent la création de sites web bien structurés et visuellement attrayants.</p>
+}</code></pre>
+          <p id="33b18696-1d27-44ec-9e5b-f0079e213532" class="">
+            Dans cet exemple, la classe <code><strong>box</strong></code> est
+            utilisée pour appliquer un style de bordure, de marge et de padding
+            identique à deux éléments
+            <code><strong>div</strong></code> différents.
+          </p>
+          <h2 id="0ab5c079-0480-4828-ba49-a59efb1dd200" class="">
+            <strong>Différence principale</strong>
+          </h2>
+          <ul id="77a45157-62f6-432d-9a07-d0fc34420a30" class="bulleted-list">
+            <li style="list-style-type: disc">
+              <strong>Unicité</strong> : Un ID est unique à chaque page et ne
+              peut être assigné qu&#x27;à un seul élément. Une classe peut être
+              assignée à plusieurs éléments sur la même page.
+            </li>
+          </ul>
+          <ul id="9b95c84c-3d0c-4759-bc36-b7f4f9612a60" class="bulleted-list">
+            <li style="list-style-type: disc">
+              <strong>Usage</strong> : Les ID sont utiles pour cibler des
+              éléments spécifiques pour les scripts et le style, tandis que les
+              classes sont idéales pour appliquer un style cohérent à plusieurs
+              éléments.
+            </li>
+          </ul>
+          <p id="8e92f3cd-dd72-4ce7-ab2d-f248e890af76" class="">
+            Les ID et les classes sont des outils puissants pour la conception
+            web, permettant de créer des styles précis et de manipuler des
+            éléments avec JavaScript. Utilisés judicieusement, ils facilitent la
+            création de sites web bien structurés et visuellement attrayants.
+          </p>
+        </ul>
+      </div>
+    </article>
+  </body>
+</html>
