@@ -1,0 +1,1167 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>CSS</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: undefined; }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-transparentGray { background-color: undefined; }
+.select-value-color-translucentGray { background-color: undefined; }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="82fa905e-4730-46d4-a9b8-9aaf6c5fc164" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1523437113738-bbd3cc89fb19?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">👨‍💻</span></div><h1 class="page-title">CSS</h1><p class="page-description"></p></header><div class="page-body"><figure id="17312a65-5f56-8063-9293-e7f330b0b55f" class="block-color-gray_background link-to-page"><a href="https://www.notion.so/HTML-17312a655f5680639293e7f330b0b55f?pvs=21"><span class="icon">👨‍💻</span>HTML</a></figure><ul id="17e12a65-5f56-8035-a9f7-c7fdfd0971cc" class="toggle"><li><details open=""><summary>Fichiers à télécharger</summary><figure id="17e12a65-5f56-8074-bd54-f04b3a6eabcd"><div class="source"><a href="CSS%2082fa905e473046d4a9b89aaf6c5fc164/index.html">index.html</a></div></figure></details></li></ul><p id="3ae4c429-81e6-4d71-8601-328e34ed241a" class="">CSS = Cascading Style Sheet</p><ol type="1" id="d4abf64f-ab2b-4ceb-8a38-207b7d61e43a" class="numbered-list" start="1"><li>Lier la page HTML à la feuille CSS<p id="abdc7eb8-672f-490b-aa96-0cb5ea216a9e" class="">ajouter une balise &lt;link&gt; dans le &lt;head&gt;</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="17e12a65-5f56-8006-b667-f677dc014120" class="code"><code class="language-HTML">&lt;link rel=&quot;stylesheet&quot; href=&quot;styles.css&quot;&gt;</code></pre></li></ol><ol type="1" id="acce6ee5-1502-4cd1-b49f-d6e89abe2695" class="numbered-list" start="2"><li>Mettre en place le CSS<p id="f8469031-8e8e-4490-9700-8753dc1b2682" class="">Syntaxe générale</p></li></ol><p id="ccb825bf-4d2a-4011-96a4-66866b906dfa" class="">Le CSS se mets en place de la manière suivante :</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="a960ebf5-fadc-4dd1-a85f-5ada7c6ac5df" class="code"><code class="language-CSS">sélecteur {
+	propriété1: valeur1;
+	propriété2: valeur2;
+}</code></pre><p id="8340a63f-e1ad-4b12-bfb3-b5a49128eeba" class="">Le sélecteur est l’élément (= la balise) HTML sur lequel la déclaration va être appliquée</p><p id="8aa082c4-07b6-4b88-9b21-0387f4002404" class="">La déclaration est l’ensemble des propriétés appliquées au sélecteur. Les propriétés sont délimitées par un “;”</p><p id="30f1ba53-a568-4a93-858d-817585ab6df4" class="">Une propriété est l’élément sur lequel vous appliquer un style</p><p id="1629eba3-b9c3-41b0-98b1-757b51c62bf0" class="">La valeur est la manière dont vous allez styliser.</p><p id="f2110b01-5f62-4128-b916-cb7bc6a4da13" class="">Par exemple, pour modifier la couleur du texte de tous les paragraphes, la syntaxe CSS à respecter est la suivante :</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="c49154d0-f58b-40bf-9555-dcb72b8613f5" class="code"><code class="language-CSS">p {
+	color: #ffffff;
+}</code></pre><p id="44b5b86a-26f2-4ac8-af0c-cf87274f1db6" class="">p représente la balise paragraphe</p><p id="ec1875d4-7965-45ab-ad0a-0968e8992c82" class="">color représente la couleur de la police</p><p id="ec5a2835-1bbc-487e-b1ef-05c248cd9b4c" class="">#ffffff est le code de la couleur blanche</p><ul id="17aeea25-7bb6-41c5-97ff-50edd94b36fc" class="toggle"><li><details open=""><summary>Exercice 1 :</summary><p id="c4a9e656-bed2-497b-ae70-46142b547df2" class="">Lier la page “Lorem Ipsum.html” à une feuille de style.</p><p id="3469a4d9-753e-41a5-8260-81d4be72cf3f" class="">=&gt; Correction:</p><p id="c55fcd16-2f8b-4f02-8a04-dab8d527b7dd" class="">ajouter la balise orpheline &lt;link&gt; dans la balise &lt;head&gt;.</p><p id="df2119b1-1720-4de2-80db-c5cfb6dfef0d" class="">Indiquer à l’aide d’un attribut rel la relation que le fichier lié entretien avec le fichier html. Ici, il s’agit d’une feuille de style, donc la relation sera “stylesheet”.</p><p id="b44036c1-37bc-48b3-b0dc-51cb03df9bb7" class="">Indiquer le chemin d’accès de la feuille de style grâce à l’attribut href</p><p id="83911806-796c-46c9-a2fd-a7f99037301b" class="">Ligne complète :</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="95047ac2-e42a-4c30-9d2e-b8f2553cb454" class="code"><code class="language-HTML">&lt;html&gt;
+	&lt;head&gt;
+		&lt;link rel=”stylesheet” href=”*indiquer le chemin d’accès complet*”&gt;
+	&lt;/head&gt;
+&lt;/html&gt;</code></pre></details></li></ul><ul id="75682d79-c32e-4482-8a0e-a404aa54b02f" class="toggle"><li><details open=""><summary>Exercice 2 :</summary><p id="4d30a428-cc91-454c-a5eb-04c3bc0cea76" class="">Mettre tous les paragraphes en bleu (#0011ff)</p><p id="a7d5dcbd-ca05-47db-b732-62d395f812f5" class="">=&gt; Correction:</p><p id="dfb90436-3445-461d-a11a-89cadd37511a" class="">modifier le fichier style.css</p><p id="5b280b5e-08b3-447a-b08b-7b598909ed66" class="">ajouter :</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="b8a5c75b-ac96-4fa7-a55c-40389ca5eaec" class="code"><code class="language-CSS">p {
+	color: #0011ff;
+}</code></pre></details></li></ul><p id="70ca153a-b0f7-4e43-886f-22d6ec37a134" class="">Liste des propriétés à connaître :</p><table id="880a1639-5edb-4537-b6c8-69c98ca96c75" class="simple-table"><thead class="simple-table-header"><tr id="a9007d99-512e-4c5c-8dd4-a00fec5c9b0c"><th id="xFFm" class="simple-table-header-color simple-table-header" style="width:531px">Propriété</th><th id="bz:x" class="simple-table-header-color simple-table-header" style="width:531px">Rôle</th></tr></thead><tbody><tr id="59c0ffbf-8fb9-4de8-a98c-298e564cdcf8"><td id="xFFm" class="" style="width:531px">color</td><td id="bz:x" class="" style="width:531px">Indiquer la couleur du texte</td></tr><tr id="54dee98e-85b1-4d1f-a850-11ad0090d603"><td id="xFFm" class="" style="width:531px">font-size</td><td id="bz:x" class="" style="width:531px">Taille du texte</td></tr><tr id="92b22f29-d7e1-4445-8e1e-bddfc01e9277"><td id="xFFm" class="" style="width:531px">font-family</td><td id="bz:x" class="" style="width:531px">La police de caractère</td></tr><tr id="4d35676e-22f1-4124-b5dd-16919ce01ea0"><td id="xFFm" class="" style="width:531px">font-weight</td><td id="bz:x" class="" style="width:531px">l’épaisseur de la police (normal ou gras =&gt; bold)</td></tr><tr id="cf846b94-0af5-499b-98d6-a3ba3c8a8169"><td id="xFFm" class="" style="width:531px">text-align</td><td id="bz:x" class="" style="width:531px">alignement du texte (à gauche, au centre, à droite, justifié)</td></tr><tr id="f91d6751-1a5e-4a7e-a96f-4ea12ebca488"><td id="xFFm" class="" style="width:531px">margin</td><td id="bz:x" class="" style="width:531px">détermine les marges extérieures</td></tr><tr id="d199a339-6be0-41a5-9850-a5fb4655bdd0"><td id="xFFm" class="" style="width:531px">padding</td><td id="bz:x" class="" style="width:531px">détermine les marges intérieures</td></tr><tr id="3c58d928-3470-4dfb-9a95-51df885927a7"><td id="xFFm" class="" style="width:531px">border</td><td id="bz:x" class="" style="width:531px">Crée une bordure autour de l’élément</td></tr><tr id="fdf1822f-22aa-4e4b-a0b7-3b5fb10175b0"><td id="xFFm" class="" style="width:531px">background-color</td><td id="bz:x" class="" style="width:531px">Fixe la couleur de l’arrière plan d’un élément</td></tr><tr id="50a06443-7fae-4b12-8be6-31c8d97635c6"><td id="xFFm" class="" style="width:531px">width</td><td id="bz:x" class="" style="width:531px">controle la largeur d’un élément</td></tr><tr id="0466be35-5dff-412c-b807-3b2ffb36a137"><td id="xFFm" class="" style="width:531px">height</td><td id="bz:x" class="" style="width:531px">controle la hauteur d’un élément</td></tr><tr id="c8273e15-b7b4-4e41-94d5-bd9d9a45068f"><td id="xFFm" class="" style="width:531px">display</td><td id="bz:x" class="" style="width:531px">détermine le modèle de boite pour l’élément</td></tr><tr id="176647a7-425d-4931-b1b2-34b3a632da16"><td id="xFFm" class="" style="width:531px">position</td><td id="bz:x" class="" style="width:531px">controle le positionnement d’un élément par rapport à son conteneur</td></tr><tr id="3dc8d1ff-6d52-4fa5-b00c-c1547ad429bc"><td id="xFFm" class="" style="width:531px">float</td><td id="bz:x" class="" style="width:531px">fait “flotter” un élément à droite ou à gauche</td></tr><tr id="c784d6b5-1dd7-46b7-be2e-2aef13bf4978"><td id="xFFm" class="" style="width:531px">clear</td><td id="bz:x" class="" style="width:531px">spécifie de quel côté les éléments flottants sont interdits</td></tr><tr id="b5db8695-a25b-4b34-9e62-0157035a5365"><td id="xFFm" class="" style="width:531px">text-decoration</td><td id="bz:x" class="" style="width:531px">ajouter ou supprimer la “décoration” du texte (souligné, barré, etc.)</td></tr><tr id="19e6a676-6d67-4a43-a35b-0fcbc7e01e1a"><td id="xFFm" class="" style="width:531px">line-height</td><td id="bz:x" class="" style="width:531px">détermine la hauteur de ligne dans un élément</td></tr><tr id="13f3fb0e-200c-4fc3-8548-163b144bddde"><td id="xFFm" class="" style="width:531px">overflow</td><td id="bz:x" class="" style="width:531px">spécifié la gestion du dépassement de contenu</td></tr><tr id="3253ac31-8c53-429e-ae0d-4cf3d3c4b4d6"><td id="xFFm" class="" style="width:531px">box-shadow</td><td id="bz:x" class="" style="width:531px">ajoute une ombre à la boite d’un élément</td></tr><tr id="64377081-891a-43ff-8c60-c0b99b34bc92"><td id="xFFm" class="" style="width:531px">transition</td><td id="bz:x" class="" style="width:531px">crée une transition entre les états d’un élément</td></tr><tr id="ba001849-4035-459d-8b1e-08ea97d35ca0"><td id="xFFm" class="" style="width:531px">media queries</td><td id="bz:x" class="" style="width:531px">adapte le style en fonction des caractéristiques du périphérique (ordinateur, tablette, mobile, etc.)</td></tr></tbody></table><ul id="993ebbf8-955f-4312-ac5e-dd48a24525c9" class="toggle"><li><details open=""><summary>Exercice 3 :</summary><p id="0102ff78-1da0-421a-95b2-0f65f616d8d3" class="">mettre tous les paragraphes en police taille 14</p><p id="84384858-4075-41f3-a99c-fed9dfca157f" class="">14 px</p><p id="4a8ffb20-1f1b-4e29-9477-c0fd0caf6919" class="">=&gt; Correction:</p><p id="50bcaf16-afbe-4e48-b95f-fa176d766ec7" class="">ajouter à la suite la propriété font-size, et indiquer la valeur 14px</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="35a324b6-3422-4f83-9154-e8639e851f73" class="code"><code class="language-CSS">p {
+	color: #0011ff;
+	font-size: 14px;
+}</code></pre></details></li></ul><ul id="62b1439a-6936-4dc0-aa49-dbd2eab4d9f3" class="toggle"><li><details open=""><summary>Exercice 4 :</summary><p id="79040a42-ab92-41f8-a61b-bd39e34ae7d9" class="">justifier le texte de tous les paragraphes</p><p id="e84f56b3-ca85-44e9-8cb3-023e06a33447" class="">=&gt; Correction:</p><p id="c3b5b659-f9f4-41f6-b078-fd6fd7ede036" class="">ajouter à la suite la propriété text-align et indiquer la valeur justify</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="c43bb970-4168-48c9-82a1-406cc068c64c" class="code"><code class="language-CSS">p {
+	color: #0011ff;
+	font-size: 14px;
+	text-align: justify;
+}</code></pre></details></li></ul><ul id="4040d2b4-9ef7-4ba1-8d1c-ca5772c0667b" class="toggle"><li><details open=""><summary>Exercice 5 :</summary><p id="0b023a0b-173d-43f2-86c4-284894473a64" class="">couleur de l’arrière plan : jaune (utiliser la valeur yellow)</p><p id="59551485-aaf1-498c-bfb2-040824437a3f" class="">couleur de la police : vert (utiliser la valeur green)</p><p id="d4085c91-6124-455e-ad76-9cc1e1fd9c2a" class="">taille de la police : 18px</p><p id="bafabf12-1233-41c4-9a56-2a278ca45ab7" class="">police : Verdana</p><p id="1e3784c7-14af-43ce-a319-f8e5cc313930" class="">texte centré (center)</p><p id="72057c6d-1ce0-44da-89c1-c5d7c81018d2" class="">=&gt; Correction</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="7dbe29b3-65e0-4c69-b93c-0e31276b1e6b" class="code"><code class="language-CSS">p {
+	background-color: yellow; =&gt; possibilité d’utiliser les codes hexadécimaux, les noms des couleurs en anglais ou les codes argb
+	color: green;
+	font-size: 18px; =&gt; Ne pas mettre d’espace entre la valeur et l’unité
+	font-family: Verdana;
+	text-align: center;
+}</code></pre></details></li></ul><h1 id="0909630b-34e4-4e17-83fa-837baddab561" class="">Les codes couleur</h1><p id="008042e7-5728-45f8-b480-ed900228659e" class="">En HTML, CSS et dans le monde de l’informatique en général, les couleurs sont codées. Cela permet d’obtenir précisément une couleur, tout en restant simple, compacte et surtout standard. Cela est possible en décomposant la lumière en ses 3 couleur primaires : le <mark class="highlight-red"><mark class="highlight-red_background">rouge</mark></mark>, le <mark class="highlight-teal"><mark class="highlight-teal_background">vert</mark></mark> et le <mark class="highlight-blue"><mark class="highlight-blue_background">bleu</mark></mark>. Il s’agit des couleurs primaires en physique. En impression couleur, les couleurs primaires sont le jaune, le cyan et le magenta et en peinture, ce sont le rouge, le bleu et le jaune. Pour bien comprendre le système de codage des couleurs, il faut d’abord comprendre le comptage hexadécimal. Et pour mieux comprendre le comptage en hexadécimal, il est plus facile de commencer avec le comptage en binaire.</p><figure id="68df84d5-947f-4890-a020-de536dd22ebc" class="link-to-page"><a href="https://www.notion.so/Compter-en-binaire-68df84d5947f4890a020de536dd22ebc?pvs=21"><span class="icon">🔟</span>Compter en binaire</a></figure><figure id="b5ffd7e0-1aa3-461c-b884-4a23b056db6a" class="link-to-page"><a href="https://www.notion.so/Compter-en-hexad-cimal-b5ffd7e01aa3461cb8844a23b056db6a?pvs=21"><span class="icon">🔢</span>Compter en hexadécimal</a></figure><p id="a22ee1a4-7061-4de5-ad7a-d14ced4e2538" class="">Les couleur primaires sont donc chacune divisées en 256 teintes différentes, de la moins intense (0) à la plus intense (255). La notation RGB signifie Red Green Blue (RVB pour Rouge Vert Bleu en français). Le code couleur correspond à une série de chiffres indiquant la quantité de rouge, de vert puis de bleu, le tout précédé du symbole <code>#</code>. En décimal, cela donne donc cette structure : <code>#</code><mark class="highlight-red"><code>124</code></mark><mark class="highlight-teal"><code>056</code></mark><mark class="highlight-blue"><code>244</code></mark><mark class="highlight-default">. Pas très pratique à utiliser…</mark></p><p id="c1981acd-730b-4ba2-aaab-42ad35c64b2a" class="">En réalité, l’utilisation de l’hexadécimal permet de réduire le nombre de caractères à utiliser. Ainsi, pour obtenir l’ensemble des chiffres de 0 à 255 (256 nombres différents) en hexadécimal, il ne faut que 2 caractères (contre 3 en décimal). En effet, 255<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow></mrow><mn>10</mn></msub></mrow><annotation encoding="application/x-tex">_{10}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4511em;vertical-align:-0.15em;"></span><span class="mord"><span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">10</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span> se note ff<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow></mrow><mn>16</mn></msub></mrow><annotation encoding="application/x-tex">_{16}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4511em;vertical-align:-0.15em;"></span><span class="mord"><span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">16</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span>. Le code couleur se transforme donc en <code>#</code><mark class="highlight-red"><code>7c</code></mark><mark class="highlight-teal"><code>38</code></mark><mark class="highlight-blue"><code>f4</code></mark>.</p><p id="ddaf6b5d-fcb4-4a6b-940c-089c8310b2ac" class="">Voici quelques codes </p><ul id="3ecf33ff-6e10-4db1-a94d-4b2648dd4140" class="bulleted-list"><li style="list-style-type:disc"></li></ul><h1 id="0f25f637-806e-4005-9e52-bae3a908a7dc" class="">Les unités du CSS</h1><p id="7e29f11a-9c67-44cb-a02a-bd74bec7afc1" class="">En CSS, il existe plusieurs unités pour spécifier les tailles et les distances. Certaines d’entre elles sont plus utilisées que d’autres, pour des raisons d’ergonomie et d’adaptabilité en fonction du support. Ces notions sont essentielles à l’heure actuelles, pour que les sites web soient utilisables aussi bien avec des ordinateurs, des tablettes ou des mobiles. </p><p id="eb69c52e-a907-426d-a0c3-707abd528625" class="">Voici les différentes unités à connaitre pour ce cours : </p><table id="b7a7d6e7-dc49-4085-a72b-45d074c8ce68" class="simple-table"><thead class="simple-table-header"><tr id="e87264af-d1c5-4894-91d5-3f7c70e64f69"><th id="CkeK" class="simple-table-header-color simple-table-header" style="width:531px">Unité</th><th id="eybL" class="simple-table-header-color simple-table-header" style="width:531px">Signification</th></tr></thead><tbody><tr id="7f0ff6d8-cf69-46a9-bd97-ec9cac9d73ee"><th id="CkeK" class="simple-table-header-color simple-table-header" style="width:531px">px (= Pixel)</th><td id="eybL" class="" style="width:531px">Une unité de mesure fixe qui correspond à un pixel sur l&#x27;écran. Les pixels sont des unités absolues, ce qui signifie qu&#x27;ils ne changent pas de taille en fonction de la taille de l&#x27;écran ou du périphérique.</td></tr><tr id="96995841-5e9c-4b42-8db5-7d10b62733e4"><th id="CkeK" class="simple-table-header-color simple-table-header" style="width:531px">% (= Pourcentage)</th><td id="eybL" class="" style="width:531px">Cette unité est relative à la taille du conteneur parent. Par exemple, si vous définissez la largeur d&#x27;un élément à 50%, cela signifie qu&#x27;il occupera la moitié de la largeur de son conteneur parent.</td></tr><tr id="1277e352-5105-4bfb-bec2-5788ba01a266"><th id="CkeK" class="simple-table-header-color simple-table-header" style="width:531px">em</th><td id="eybL" class="" style="width:531px">Une unité relative à la taille de la police de l&#x27;élément. Par exemple, si la taille de police d&#x27;un élément est de 16px, <code><strong>1em</strong></code> équivaudra à 16px, <code><strong>2em</strong></code> équivaudra à 32px, et ainsi de suite.</td></tr><tr id="ca220e88-8e21-49b2-8e70-8bacc7b324a5"><th id="CkeK" class="simple-table-header-color simple-table-header" style="width:531px">rem</th><td id="eybL" class="" style="width:531px">Une unité relative à la taille de la police de l&#x27;élément racine (<code><strong>&lt;html&gt;</strong></code>). Cela signifie que <code><strong>1rem</strong></code> équivaut à la taille de la police de l&#x27;élément racine, tandis que <code><strong>2rem</strong></code> équivaut à deux fois la taille de la police de l&#x27;élément racine.</td></tr><tr id="74f8c02f-b3be-4c20-b734-17feb4814edc"><th id="CkeK" class="simple-table-header-color simple-table-header" style="width:531px">vw (= Viewport Width)</th><td id="eybL" class="" style="width:531px">Une unité relative à la largeur de la fenêtre d&#x27;affichage. <code><strong>1vw</strong></code> équivaut à 1% de la largeur de la fenêtre d&#x27;affichage.</td></tr><tr id="07a616ce-6d1e-4a17-9f71-b4b92ce177ba"><th id="CkeK" class="simple-table-header-color simple-table-header" style="width:531px">vh (= Viewport Height)</th><td id="eybL" class="" style="width:531px">Une unité relative à la hauteur de la fenêtre d&#x27;affichage. <code><strong>1vh</strong></code> équivaut à 1% de la hauteur de la fenêtre d&#x27;affichage.</td></tr><tr id="7805e5d3-d195-4b8a-ace3-985356df0286"><th id="CkeK" class="simple-table-header-color simple-table-header" style="width:531px">vmin (= Viewport Minimum)</th><td id="eybL" class="" style="width:531px">Une unité relative au plus petit des deux entre <code><strong>vw</strong></code> et <code><strong>vh</strong></code>.</td></tr><tr id="792177c7-4cfe-4514-b1c3-0713935331eb"><th id="CkeK" class="simple-table-header-color simple-table-header" style="width:531px">vmax (= Viewport Maximum)</th><td id="eybL" class="" style="width:531px">Une unité relative au plus grand des deux entre <code><strong>vw</strong></code> et <code><strong>vh</strong></code>.</td></tr><tr id="10eea9c8-6f84-4573-866d-4c9ae8aebdb3"><th id="CkeK" class="simple-table-header-color simple-table-header" style="width:531px">cm (= Centimètre)</th><td id="eybL" class="" style="width:531px">Une unité de mesure absolue correspondant à un centimètre.</td></tr><tr id="c61607cb-f4bc-4111-a818-ec1cb1b0e904"><th id="CkeK" class="simple-table-header-color simple-table-header" style="width:531px">mm (= Millimètre)</th><td id="eybL" class="" style="width:531px">Une unité de mesure absolue correspondant à un millimètre.</td></tr></tbody></table><p id="2948c69d-8ed5-4228-bd34-e5f7c85009e6" class="">En HTML et CSS, un &quot;conteneur parent&quot; fait référence à un élément qui englobe d&#x27;autres éléments à l&#x27;intérieur de la structure HTML. Ce conteneur parent peut être n&#x27;importe quel élément HTML, tel qu&#x27;une <code><strong>&lt;div&gt;</strong></code>, un <code><strong>&lt;section&gt;</strong></code>, un <code><strong>&lt;article&gt;</strong></code>, etc. L&#x27;idée principale est que cet élément est le parent de ses enfants directs.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="f83e8d40-6144-4fa8-a402-0ff340246995" class="code"><code class="language-HTML">&lt;div class=&quot;container&quot;&gt;
+    &lt;h1&gt;Titre&lt;/h1&gt;
+    &lt;p&gt;Paragraphe 1&lt;/p&gt;
+    &lt;p&gt;Paragraphe 2&lt;/p&gt;
+&lt;/div&gt;</code></pre><p id="2070d6be-0cab-4922-b145-60b29b74a6c2" class="">La <code><strong>&lt;div class=&quot;container&quot;&gt;</strong></code> est le conteneur parent des éléments <code><strong>&lt;h1&gt;</strong></code>, <code><strong>&lt;p&gt;</strong></code> et <code><strong>&lt;p&gt;</strong></code> qu&#x27;elle englobe. En CSS, vous pouvez cibler ce conteneur parent et appliquer des styles à tous ses enfants à l&#x27;aide de sélecteurs CSS appropriés.</p><p id="be60c94a-728f-4176-8f35-d1ac100cf64b" class="">Les conteneurs parents sont souvent utilisés pour regrouper des éléments connexes, créer des mises en page, définir des sections de contenu et appliquer des styles de mise en forme. Ils sont essentiels pour structurer efficacement une page web et maintenir un code HTML et CSS organisé et maintenable.</p><p id="e907026c-6ce1-41c5-adaf-470cb8e87160" class="">En HTML, l&#x27;élément racine fait référence à l&#x27;élément le plus haut dans la structure de la page web. Cet élément est généralement <code><strong>&lt;html&gt;</strong></code> et représente le conteneur de tout le contenu HTML de la page. Voici à quoi ressemble généralement la structure d&#x27;une page HTML de base :</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1489d846-3484-4a9d-8cff-c95a1f1b4e1b" class="code"><code class="language-HTML">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;fr&quot;&gt;
+	&lt;head&gt;
+	    &lt;meta charset=&quot;UTF-8&quot;&gt;
+	    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+	    &lt;title&gt;Titre de la page&lt;/title&gt;
+	    &lt;!-- Les balises &lt;meta&gt; ci-dessus définissent la configuration de la page --&gt;
+	    &lt;!-- Les liens vers les feuilles de style CSS et les scripts JavaScript sont également souvent inclus ici --&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+	    &lt;!-- Tout le contenu de la page HTML est placé ici --&gt;
+	    &lt;!-- Cela peut inclure des éléments tels que des balises &lt;header&gt;, &lt;main&gt;, &lt;footer&gt;, etc. --&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</code></pre><p id="acec76e6-cec5-4a4a-a305-1ea0ac77009a" class="">Dans cet exemple, <code><strong>&lt;html&gt;</strong></code> est l&#x27;élément racine. Il englobe tout le contenu de la page, y compris l&#x27;en-tête (<code><strong>&lt;head&gt;</strong></code>) et le corps (<code><strong>&lt;body&gt;</strong></code>). Les éléments <code><strong>&lt;head&gt;</strong></code> et <code><strong>&lt;body&gt;</strong></code> sont des enfants directs de l&#x27;élément racine <code><strong>&lt;html&gt;</strong></code>. L&#x27;élément racine peut contenir des métadonnées sur la page, des liens vers des feuilles de style CSS, des scripts JavaScript, des informations sur la langue (<code><strong>lang</strong></code>), etc.</p><h1 id="a5cf468f-e717-44ed-a086-0a306d120760" class="">Les conteneurs en HTML</h1><p id="2103acf2-b6ec-40a1-9937-ddd37d8283db" class="">Les conteneurs en HTML sont des éléments qui servent à structurer le contenu d&#x27;une page web. Ils peuvent encapsuler d&#x27;autres éléments HTML pour appliquer un style, une mise en page ou des comportements spécifiques.</p><table id="8b1b7595-156a-45b2-848e-db66070db986" class="simple-table"><thead class="simple-table-header"><tr id="8411b6aa-d0e2-4e94-adfe-f64dcc38eca2"><th id="jGOk" class="simple-table-header-color simple-table-header" style="width:531px">Balise</th><th id="rgiv" class="simple-table-header-color simple-table-header" style="width:531px">Fonction</th></tr></thead><tbody><tr id="6884857d-962a-4653-bdff-bf2dacef86f1"><td id="jGOk" class="" style="width:531px"><code>&lt;div&gt;</code></td><td id="rgiv" class="" style="width:531px">C&#x27;est le conteneur le plus générique. Il est utilisé pour grouper des éléments afin de les formater avec du CSS ou de manipuler leur comportement avec JavaScript. Le <code><strong>&lt;div&gt;</strong></code> n&#x27;a pas de signification sémantique en soi.</td></tr><tr id="1affc8b0-23c2-44dc-8c22-0af6e777e964"><td id="jGOk" class="" style="width:531px"><code>&lt;section&gt;</code></td><td id="rgiv" class="" style="width:531px">Représente une section générique d&#x27;un document ou d&#x27;une application, généralement avec un thème ou une fonctionnalité cohérente, souvent accompagnée d&#x27;un titre.</td></tr><tr id="11a26a1d-d544-4d46-87ae-b78f87c2f28a"><td id="jGOk" class="" style="width:531px"><code>&lt;header&gt;</code></td><td id="rgiv" class="" style="width:531px">Sert à définir l&#x27;en-tête d&#x27;une section ou d&#x27;une page. Il peut contenir des éléments introductifs ou de navigation, comme des logos, des titres, des menus de navigation.</td></tr><tr id="c696a515-800a-42e9-afda-79246a9f76a7"><td id="jGOk" class="" style="width:531px"><code>&lt;footer&gt;</code></td><td id="rgiv" class="" style="width:531px">Utilisé pour le pied de page d&#x27;une section ou d&#x27;une page. Il contient souvent des informations comme les droits d&#x27;auteur, des liens vers des mentions légales, des contacts, etc.</td></tr><tr id="63dfebb6-b0e0-47c7-b73d-58e84b7778bb"><td id="jGOk" class="" style="width:531px"><code>&lt;nav&gt;</code></td><td id="rgiv" class="" style="width:531px">Spécifiquement destiné à la navigation. Il englobe un ensemble de liens de navigation, tels que des menus, des tables des matières, des index.</td></tr><tr id="7b77c4af-268a-4712-8da9-708d3300ce0c"><td id="jGOk" class="" style="width:531px"><code>&lt;article&gt;</code></td><td id="rgiv" class="" style="width:531px">Destiné à encapsuler un contenu autonome qui pourrait être distribué indépendamment du reste du site, comme des articles de blog, des posts de forum, des commentaires.</td></tr><tr id="a7b9de47-0b59-45b1-a147-c3cbfbf872f0"><td id="jGOk" class="" style="width:531px"><code>&lt;aside&gt;</code></td><td id="rgiv" class="" style="width:531px">Utilisé pour marquer des contenus tangentiels au contenu principal, comme des barres latérales, des encadrés, des publicités.</td></tr><tr id="c762a0ab-92d0-4c2e-8934-afbb82b69aea"><td id="jGOk" class="" style="width:531px"><code>&lt;main&gt;</code></td><td id="rgiv" class="" style="width:531px">Spécifie le contenu principal d&#x27;un document. Il ne doit y avoir qu&#x27;un seul élément <code><strong>&lt;main&gt;</strong></code> par document, qui contient le contenu unique et central de la page.</td></tr></tbody></table><p id="baa447ab-23a1-481a-b9ca-f0a0ca7bb3b8" class="">Chacun de ces conteneurs a sa propre signification sémantique et doit être utilisé selon le type de contenu qu&#x27;il est censé représenter, ce qui aide à améliorer l&#x27;accessibilité du web et le référencement naturel (SEO).</p><ul id="a97598b2-d281-4a3e-858a-9cf32516a49b" class="toggle"><li><details open=""><summary>Exercice 6 :</summary><p id="ff9c709d-38c8-4a78-8d1c-b9caa5df0971" class="">Mettre les 2 premiers paragraphes dans une balise <code>&lt;div&gt;</code>.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="653124c8-eb64-4736-9cb6-bc8acced4620" class="code"><code class="language-HTML">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;./style.css&quot;&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+		&lt;div&gt;
+		    &lt;p&gt;
+		        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce lorem mi, aliquet efficitur metus non, efficitur
+		        porttitor velit. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur euismod leo ipsum, in
+		        ullamcorper risus porta a. Proin est sem, tempor et elit sit amet, scelerisque venenatis mauris. Integer felis
+		        metus, hendrerit vitae elit fringilla, accumsan imperdiet nibh. Duis at interdum mauris. Donec vulputate, sem a
+		        sodales tincidunt, tortor est tempus dui, quis laoreet erat dolor ac augue. Integer non sapien id risus viverra
+		        egestas. Donec id lorem a lorem facilisis facilisis. Suspendisse dapibus fermentum lorem sed consequat.
+		        Curabitur sed egestas mauris. Vivamus efficitur nisi eu quam placerat porttitor. Duis lobortis aliquet dui eget
+		        malesuada. Aenean non libero eget eros tempor facilisis vel ut diam. Phasellus non est sodales, tincidunt nisl
+		        vel, ultrices augue. Pellentesque suscipit nunc quis massa pellentesque, eu sodales orci elementum.
+		    &lt;/p&gt;
+		    &lt;p&gt;Aliquam arcu mi, lacinia quis neque quis, posuere suscipit erat. Proin non est justo. Aliquam et convallis ipsum.
+		        Donec quis mauris quam. Proin eleifend ante condimentum erat efficitur, et semper lectus faucibus. In eget
+		        lobortis sem. Integer fringilla tellus id mauris bibendum porttitor. Suspendisse commodo odio eget nisl tempus,
+		        vel molestie libero finibus. Pellentesque a porta mauris. Vivamus faucibus lorem et neque euismod tempus. Nulla
+		        eu mauris et nisi feugiat auctor. Nullam ligula diam, congue et sem vestibulum, rutrum laoreet ipsum.
+		    &lt;/p&gt;
+		&lt;/div&gt;
+    &lt;p&gt;Aenean justo sapien, fringilla a tincidunt id, vulputate sed nibh. Maecenas id arcu eget nibh dapibus imperdiet
+        at ac purus. Aenean facilisis tortor venenatis elit egestas sodales. Sed eget lobortis mauris, non condimentum
+        ipsum. Maecenas tristique iaculis ultrices. Maecenas risus neque, vestibulum vel congue vitae, porttitor eu
+        felis. Proin ultrices varius leo, quis consequat nibh. Praesent at ipsum erat. Fusce dui mi, dignissim ut
+        iaculis a, pharetra ultricies nibh. Sed luctus tortor in gravida aliquam. Integer rutrum pretium mi. Aenean non
+        enim libero. Pellentesque sit amet tincidunt sem.
+    &lt;/p&gt;
+    &lt;p&gt;Ut a diam quam. Aenean placerat est ut quam malesuada, sit amet auctor nulla volutpat. Phasellus eros eros,
+        egestas sit amet eleifend id, rhoncus et nulla. Nulla mollis risus sapien, vel porttitor justo tempus id. Etiam
+        porta justo eu mi ultricies, in tincidunt lectus placerat. Vivamus justo turpis, consequat sed sem blandit,
+        aliquam maximus libero. Suspendisse in facilisis mauris. Cras eu consequat metus. Integer et blandit leo. In
+        nibh diam, elementum a interdum eu, vestibulum auctor lacus. Integer dictum nec ipsum sed ullamcorper. Sed
+        blandit hendrerit mauris, ac aliquet risus varius non. Donec euismod tincidunt metus quis vulputate. Nunc
+        lobortis sagittis maximus.
+    &lt;/p&gt;
+    &lt;p&gt;Nam egestas urna gravida enim venenatis dictum. Ut pellentesque finibus aliquet. Integer quis convallis metus.
+        Integer in mollis ex, at scelerisque enim. Mauris volutpat elit eget tempus sollicitudin. Nulla at ante mollis,
+        sodales libero et, semper urna. Suspendisse ullamcorper urna nec risus ultrices blandit. Sed maximus suscipit
+        porttitor. Cras id urna porttitor, mollis lacus non, semper sem. Curabitur maximus ligula et libero vulputate
+        tempor. Nam in scelerisque lorem, vel luctus odio. Suspendisse potenti. Integer sit amet massa eget sem aliquet
+        sagittis eu luctus leo. In a massa tempor, dictum neque sit amet, sollicitudin risus. Aliquam faucibus orci id
+        rutrum luctus.
+    &lt;/p&gt;
+    &lt;p&gt;Donec fermentum magna mauris, ut convallis elit tempor in. Vivamus vitae nisi diam. Etiam vel bibendum turpis.
+        Cras eget risus vulputate lorem aliquet malesuada. Curabitur nec aliquet sapien, et accumsan dolor. Sed commodo
+        tempor ex, eu ultricies justo. Phasellus sit amet commodo nisi, nec ultricies nisl. Vivamus nec libero massa.
+        Aenean lorem metus, vehicula a velit id, imperdiet pharetra nisi. Aliquam hendrerit aliquet quam, ac lacinia
+        ligula ultrices sed. Pellentesque consectetur sem sem, in efficitur lectus eleifend vel. Proin tempor dui at
+        ante sollicitudin tincidunt. Donec in nisl enim. Sed consectetur luctus quam a fringilla.
+    &lt;/p&gt;
+    &lt;p&gt;Aliquam erat volutpat. Etiam nec dapibus leo, eu consequat diam. Mauris eu ultricies elit. Fusce id euismod dui,
+        et lacinia ligula. In varius blandit eros non interdum. Cras aliquet gravida dolor, ac accumsan velit dapibus
+        in. Nam eu ornare lacus, non molestie neque. Ut tristique lorem vitae interdum cursus. Vivamus eleifend
+        pellentesque mauris, eget porta magna mattis vitae. Aliquam id viverra arcu, ac hendrerit dolor.
+    &lt;/p&gt;
+    &lt;p&gt;Phasellus iaculis magna est, eget suscipit nulla ultricies porttitor. Suspendisse et lectus ut sem hendrerit
+        euismod at vitae magna. Suspendisse lorem mauris, lacinia id lacus sit amet, aliquam rhoncus metus. Donec orci
+        magna, vestibulum ut ex imperdiet, cursus placerat risus. Mauris molestie nulla sit amet dui sollicitudin
+        convallis. Ut eleifend, est ac pharetra auctor, magna lectus faucibus ante, a gravida quam libero mollis nibh.
+        Praesent ultrices eu ex commodo finibus. Nullam vitae erat mauris. Curabitur sapien quam, consequat in elit
+        eget, aliquam tincidunt purus. Vivamus ultrices sodales malesuada. Curabitur et condimentum mi.
+    &lt;/p&gt;
+    &lt;p&gt;Vestibulum volutpat, massa nec lobortis euismod, risus ipsum placerat leo, id pellentesque risus mauris sit amet
+        purus. Quisque commodo libero quis porttitor commodo. Sed sit amet tincidunt diam. Curabitur consequat metus
+        quis lectus lacinia congue. Pellentesque sed faucibus velit. Ut libero ex, sodales a dignissim nec, dapibus eu
+        metus. Suspendisse potenti. Sed molestie id erat quis vehicula. Lorem ipsum dolor sit amet, consectetur
+        adipiscing elit. Donec hendrerit odio sit amet nulla tempus, sed luctus orci dignissim. Aliquam erat volutpat.
+        Donec id libero in lacus pharetra lacinia vitae ac dui. Donec ut dignissim velit. In et quam sit amet quam
+        dapibus eleifend. Donec sodales nisl neque, a commodo risus auctor vitae.
+    &lt;/p&gt;
+    &lt;p&gt;In vel elit leo. Aliquam imperdiet eros at ex pretium, a pretium enim condimentum. Fusce at odio id nulla varius
+        dignissim. Nulla aliquam erat in lorem interdum semper. In vel porta quam, a pulvinar libero. Vestibulum
+        ullamcorper, libero in sodales scelerisque, neque leo lobortis risus, in elementum leo tellus eget nisi.
+        Suspendisse vitae nunc orci. Pellentesque accumsan, eros eu accumsan gravida, purus nisl tincidunt lacus, sit
+        amet malesuada massa nisl ut augue. Nam pulvinar, lacus sed ultrices pretium, magna justo lobortis est, eu
+        ultricies lacus ex eu arcu. Vestibulum venenatis lorem sit amet libero laoreet malesuada. Proin ut viverra mi,
+        non fringilla mi. Donec eleifend metus sem, in molestie nisl vehicula in. In finibus finibus tellus, ac
+        vulputate odio maximus quis. Aenean neque metus, dictum vitae nibh sed, ullamcorper commodo magna. Aenean in
+        diam erat. Cras et elementum urna.
+    &lt;/p&gt;
+    &lt;p&gt;Integer efficitur tristique ultrices. Nam tempor lectus ut risus cursus, ut condimentum elit fermentum.
+        Suspendisse potenti. Ut fermentum tellus in massa malesuada, non pharetra nulla mollis. Aenean euismod, dolor
+        volutpat mollis dignissim, nulla dolor sodales felis, ut vestibulum tortor tellus ac quam. In sit amet sem
+        finibus, maximus risus ut, mattis eros. Fusce vel tristique justo, tristique dictum felis. Ut ultrices in dolor
+        eget placerat. Phasellus molestie, nisi vitae pulvinar fermentum, arcu orci luctus mauris, ut dignissim elit
+        nisi in justo. Maecenas auctor velit at commodo lacinia. Mauris pulvinar, turpis vel scelerisque facilisis, erat
+        est euismod velit, nec venenatis ipsum nibh nec velit. Sed mattis in odio sit amet ultricies. Sed hendrerit
+        neque nulla, finibus rhoncus ipsum lacinia non. Etiam egestas facilisis porttitor.
+    &lt;/p&gt;
+    &lt;p&gt;Nulla sit amet egestas leo. Fusce malesuada purus fringilla nibh lobortis tincidunt. Fusce dui libero, facilisis
+        vitae molestie id, hendrerit ut lectus. Pellentesque accumsan in tellus id dignissim. Ut porta, libero et congue
+        tristique, nibh sem ultrices ante, pulvinar dictum ex justo in erat. Sed non velit quis enim dictum congue vel
+        elementum diam. Nunc fringilla odio nec urna dignissim feugiat. In arcu leo, luctus rhoncus iaculis sed,
+        hendrerit non justo. In a erat at dolor accumsan rutrum. Cras non eros in ante lacinia imperdiet. Proin tempor
+        consectetur facilisis. Sed urna libero, aliquet placerat velit nec, venenatis vestibulum enim. Aenean luctus
+        bibendum arcu, eu facilisis ante convallis vitae.
+    &lt;/p&gt;
+    &lt;p&gt;Vestibulum auctor tortor malesuada, pellentesque urna non, convallis elit. Integer sit amet odio a metus
+        consequat viverra nec vitae justo. Fusce justo neque, tincidunt ac neque at, rutrum mollis metus. Quisque
+        dignissim, dolor a varius porta, nisl lorem consequat magna, vitae sodales tortor sem ac velit. In faucibus
+        cursus enim, eu porttitor enim faucibus non. Mauris in efficitur nisl. Cras venenatis leo odio, nec hendrerit
+        mauris bibendum eget. Donec eu convallis neque, id ornare libero. Ut accumsan ac nulla vitae gravida. Praesent
+        ac felis ac sapien laoreet convallis. Suspendisse laoreet, purus vel facilisis posuere, nisi turpis hendrerit
+        elit, vitae venenatis dolor sapien at velit. Morbi dolor lacus, gravida lobortis mi tincidunt, consequat sodales
+        dui.
+    &lt;/p&gt;
+    &lt;p&gt;Fusce non luctus lacus. Nulla lectus ante, hendrerit pellentesque malesuada a, semper laoreet erat. Vivamus
+        interdum quis massa sit amet dictum. Nullam cursus aliquam viverra. Aliquam nibh est, auctor a pharetra sit
+        amet, molestie id metus. Integer molestie, sapien eget auctor ultricies, nulla sapien congue arcu, interdum
+        interdum ipsum neque eget ligula. Maecenas rutrum, elit id mattis hendrerit, elit purus ornare enim, tincidunt
+        tempus augue nisl in dolor. Phasellus auctor, orci eu accumsan egestas, libero ex mattis justo, vitae vehicula
+        ligula augue sit amet velit. Nam ac elit massa. Nullam sit amet ullamcorper enim. Quisque bibendum purus at ex
+        molestie viverra. In neque felis, porta sed mollis non, facilisis in ipsum.
+    &lt;/p&gt;
+    &lt;p&gt;Aliquam ut leo at tellus accumsan tristique. Curabitur tempus magna a interdum commodo. Sed vitae nibh imperdiet,
+        egestas diam non, sagittis mauris. Maecenas tincidunt nisi arcu, vitae efficitur arcu facilisis a. Duis commodo
+        dignissim ex at convallis. Suspendisse potenti. Vestibulum laoreet ex sed pulvinar rhoncus. Nulla eget enim et
+        sem fringilla consectetur. Pellentesque elementum vestibulum arcu, nec tincidunt mi blandit accumsan. Quisque
+        tempor turpis id posuere aliquam. Proin quis imperdiet libero. Morbi tempor rutrum ullamcorper. Nunc vestibulum
+        venenatis magna, quis feugiat nibh faucibus et. Praesent velit dui, bibendum vitae bibendum eget, gravida eu
+        risus.
+    &lt;/p&gt;
+    &lt;p&gt;Duis faucibus efficitur nisi nec congue. Mauris efficitur nec nibh in molestie. Morbi eleifend vestibulum ante,
+        id congue ex euismod accumsan. Vestibulum a augue tellus. Nunc fermentum dui eget lectus dapibus interdum.
+        Quisque non malesuada lacus. Morbi aliquet cursus accumsan. Nam pellentesque aliquam sem sed suscipit.
+        Vestibulum nec rutrum eros.
+    &lt;/p&gt;
+    &lt;p&gt;Sed quis nisi fringilla, lacinia neque non, lobortis ipsum. Donec a varius nisi, eu faucibus orci. Pellentesque
+        sollicitudin sit amet libero ac dignissim. Mauris varius consectetur quam sit amet finibus. Praesent
+        pellentesque arcu vel ipsum auctor suscipit. Suspendisse pellentesque augue nibh, id pellentesque felis
+        fermentum suscipit. Ut ut nisl eu erat lobortis ullamcorper. Maecenas non tincidunt tellus. Integer accumsan
+        tincidunt nunc nec faucibus. Vivamus pharetra ligula auctor lectus sodales, sed efficitur orci tempor. Sed
+        dapibus pretium sollicitudin. Nunc massa tellus, volutpat in suscipit in, hendrerit sed turpis. Curabitur at
+        ipsum eget purus vehicula mattis.
+    &lt;/p&gt;
+    &lt;p&gt;Pellentesque dignissim, tellus sit amet vestibulum scelerisque, urna tellus sollicitudin leo, nec tempor augue
+        velit eget arcu. Mauris efficitur magna non tellus vestibulum, ut dignissim arcu dictum. Vestibulum sed leo at
+        velit rhoncus tristique. Mauris viverra consequat imperdiet. Morbi orci mauris, hendrerit nec purus eu, eleifend
+        tempor lacus. Sed ultrices eget urna eu venenatis. Praesent sed mauris at eros vestibulum viverra id condimentum
+        magna. Vivamus vitae mi orci. Suspendisse tincidunt ante sed dolor dapibus posuere id vitae justo. Donec a nisl
+        ut urna bibendum imperdiet egestas nec neque. Ut non dui quis urna sollicitudin dignissim ac sed ante. Curabitur
+        iaculis orci ac velit dignissim, sit amet malesuada nibh accumsan. Aenean vulputate tellus sed turpis facilisis
+        placerat. Maecenas vel pulvinar leo, scelerisque facilisis urna. Praesent aliquam nisi at pharetra congue. Donec
+        eu lacus euismod, bibendum leo in, facilisis mauris.
+    &lt;/p&gt;
+    &lt;p&gt;Nulla interdum eros quis vehicula aliquet. Donec vestibulum in lectus ac viverra. Quisque in libero eget dolor
+        vehicula pharetra volutpat quis enim. Nam luctus vulputate eros. Praesent non finibus nulla. Integer consectetur
+        porttitor orci, eget rhoncus lacus. Mauris maximus bibendum lacus pharetra porta. Pellentesque sed euismod
+        massa. Pellentesque sit amet justo ut urna tristique feugiat. In at vehicula dolor.
+    &lt;/p&gt;
+    &lt;p&gt;Maecenas sodales eu turpis vel venenatis. Nulla quis dapibus justo. Sed posuere dignissim felis eget imperdiet.
+        Cras volutpat eros non mi malesuada sollicitudin. Donec lacinia ornare leo interdum condimentum. Proin urna
+        justo, sodales in dictum sit amet, maximus non felis. Donec tortor urna, posuere a augue sit amet, bibendum
+        facilisis dui. Pellentesque ut ex ut nisl aliquet maximus. Nullam at eleifend eros. Vestibulum ante ipsum primis
+        in faucibus orci luctus et ultrices posuere cubilia curae; In accumsan, tortor at tempus tempor, enim dui
+        aliquet est, tristique facilisis ex ante ut neque. Sed finibus eleifend lacus ac tempus. Sed laoreet
+        pellentesque turpis facilisis sodales. Duis feugiat convallis tortor, a aliquam ex feugiat ac. Cras pellentesque
+        mattis ex.
+    &lt;/p&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="7c15634e-4557-44d2-bf8d-1b21a1b916fb" class="code"><code class="language-CSS">div {
+    color: black;
+    background-color: white;
+    font-size: 24px;
+    text-align: justify;
+}</code></pre></details></li></ul><h1 id="6687c5b4-2bef-42a3-9b8d-e45e97e584a4" class="">ID et classes</h1><p id="6602650e-bd7d-4602-b58a-07c4e9728e07" class="">Les ID et les classes sont des sélecteurs utilisés en HTML et CSS pour identifier et appliquer des styles spécifiques à des éléments de la page web. Bien qu&#x27;ils servent tous deux à personnaliser l&#x27;apparence et le comportement des éléments HTML, ils ont des caractéristiques et des utilisations distinctes.</p><h2 id="da25e385-1e79-48a5-9db7-0d3605f1b305" class=""><strong><strong>ID</strong></strong></h2><ul id="38659a1d-ae98-4e13-91a9-df83773eb969" class="bulleted-list"><li style="list-style-type:disc">Un ID est un identifiant unique qui ne peut être utilisé qu&#x27;avec un seul élément HTML sur une page. Cela signifie qu&#x27;aucun autre élément sur cette page ne peut avoir le même ID.</li></ul><ul id="177002cf-467b-475d-9968-c9d9a578b274" class="bulleted-list"><li style="list-style-type:disc">L&#x27;ID est précédé du symbole <code><strong>#</strong></code> lorsqu&#x27;il est référencé dans un fichier CSS ou JavaScript.</li></ul><ul id="934d894d-faa7-4de8-b63c-165c597a8558" class="bulleted-list"><li style="list-style-type:disc">Utiliser un ID quand vous avez besoin de cibler un élément spécifique qui n&#x27;apparaît qu&#x27;une fois dans le document.</li></ul><p id="a999b941-d189-4e0c-90bd-cf44fd5b124f" class=""><strong>Exemple d&#x27;ID :</strong></p><p id="b9584556-5c5b-4894-91b9-e664d4bd6805" class="">HTML :</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="35111add-ad45-4177-9b27-49ec1cbeefaf" class="code"><code class="language-HTML" style="white-space:pre-wrap;word-break:break-all">&lt;div id=&quot;header&quot;&gt;En-tête du site&lt;/div&gt;</code></pre><p id="7563e141-812d-439b-9ab1-5e00411374db" class="">CSS :</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="60e50acd-4aa4-47ff-b428-84f502f08f56" class="code"><code class="language-CSS" style="white-space:pre-wrap;word-break:break-all">#header {
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 20px;
+    text-align: center;
+}</code></pre><p id="702af716-e484-4d89-8761-c22433c69d75" class="">Dans cet exemple, l&#x27;ID <code><strong>header</strong></code> est utilisé pour appliquer un style spécifique à l&#x27;élément <code><strong>div</strong></code> qui représente l&#x27;en-tête du site web.</p><h2 id="a7d0d2e6-4e10-4e6c-a53f-e586ce859645" class=""><strong>Classes</strong></h2><ul id="b1549291-6778-41da-855f-02b57eacb43e" class="bulleted-list"><li style="list-style-type:disc">Une classe peut être utilisée sur plusieurs éléments HTML sur une même page, ce qui la rend utile pour appliquer un style cohérent à différents éléments.</li></ul><ul id="258e4700-1642-49ca-82a3-cadf480bb67b" class="bulleted-list"><li style="list-style-type:disc">La classe est précédée du symbole <code><strong>.</strong></code> lorsqu&#x27;elle est référencée dans un fichier CSS.</li></ul><ul id="62f5b77f-1432-4543-8847-955c35800e62" class="bulleted-list"><li style="list-style-type:disc">Utiliser une classe quand vous voulez que plusieurs éléments partagent le même style.</li></ul><p id="3fa93ffe-d5f9-4bae-a906-2fc35afc010e" class=""><strong>Exemple de classe :</strong></p><p id="cf922f3d-f67b-4bfb-a157-714aac195c6c" class="">HTML :</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1ffba48d-f336-4596-9b56-f9fa84a86004" class="code"><code class="language-HTML" style="white-space:pre-wrap;word-break:break-all">&lt;div class=&quot;box&quot;&gt;Contenu 1&lt;/div&gt;
+&lt;div class=&quot;box&quot;&gt;Contenu 2&lt;/div&gt;</code></pre><p id="813c3b05-ea58-4830-a925-a7d035fe45bc" class="">CSS :</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="f25db039-aaa0-41a4-a4de-b6552edc19c7" class="code"><code class="language-CSS" style="white-space:pre-wrap;word-break:break-all">.box {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 5px;
+}</code></pre><p id="33b18696-1d27-44ec-9e5b-f0079e213532" class="">Dans cet exemple, la classe <code><strong>box</strong></code> est utilisée pour appliquer un style de bordure, de marge et de padding identique à deux éléments <code><strong>div</strong></code> différents.</p><h2 id="0ab5c079-0480-4828-ba49-a59efb1dd200" class=""><strong>Différence principale</strong></h2><ul id="77a45157-62f6-432d-9a07-d0fc34420a30" class="bulleted-list"><li style="list-style-type:disc"><strong>Unicité</strong> : Un ID est unique à chaque page et ne peut être assigné qu&#x27;à un seul élément. Une classe peut être assignée à plusieurs éléments sur la même page.</li></ul><ul id="9b95c84c-3d0c-4759-bc36-b7f4f9612a60" class="bulleted-list"><li style="list-style-type:disc"><strong>Usage</strong> : Les ID sont utiles pour cibler des éléments spécifiques pour les scripts et le style, tandis que les classes sont idéales pour appliquer un style cohérent à plusieurs éléments.</li></ul><p id="8e92f3cd-dd72-4ce7-ab2d-f248e890af76" class="">Les ID et les classes sont des outils puissants pour la conception web, permettant de créer des styles précis et de manipuler des éléments avec JavaScript. Utilisés judicieusement, ils facilitent la création de sites web bien structurés et visuellement attrayants.</p><h1 id="18512a65-5f56-80b5-972d-e503c9009f69" class="">Exercices pratiques</h1><ul id="1afa4e8d-fd76-4462-8752-08c2bfe0f715" class="toggle"><li><details open=""><summary>Recettes de cuisine - Exercices</summary><figure id="85dcc6ec-a90f-42aa-8db6-56b5a7028741"><div class="source"><a href="CSS%2082fa905e473046d4a9b89aaf6c5fc164/Quiche_Lorraine_-_Recettes_de_cuisine.html">Quiche Lorraine - Recettes de cuisine.html</a></div></figure><figure id="b6c60933-0ee2-481b-b1e0-f1b1075b1b12"><div class="source"><a href="CSS%2082fa905e473046d4a9b89aaf6c5fc164/Salade_Grecque_-_Recettes_de_cuisine.html">Salade Grecque - Recettes de cuisine.html</a></div></figure><figure id="d470a469-059a-49dd-b682-08c151c1af7e"><div class="source"><a href="CSS%2082fa905e473046d4a9b89aaf6c5fc164/Ratatouille_Nicoise_-_Recettes_de_cuisine.html">Ratatouille Niçoise - Recettes de cuisine.html</a></div></figure><ul id="f01b77be-b6cd-4683-bcbc-39b83468a248" class="toggle"><li><details open=""><summary>Exercice 1</summary><p id="dd185a9c-d1bd-4c25-b48f-2bbd5cc33f96" class="">Consigne : Créer une balise dans le fichier HTML dans le but de lier la page web à un fichier CSS</p><ul id="f6072522-7306-4a7f-9810-1f6362aefc40" class="toggle"><li><details open=""><summary>Correction : </summary><p id="70f3fb69-9aef-41eb-8051-1447a7742929" class="">Dans la balise <code>&lt;head&gt;</code>, ajouter une balise <code>&lt;link&gt;</code>.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="7307349b-27a7-4709-989c-b8255b8f7a70" class="code"><code class="language-HTML">&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Salade Grecque - Recettes de Cuisine&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;./style.css&quot;&gt;
+&lt;/head&gt;</code></pre><p id="212966bd-a59c-4a20-b0b9-1373f5802d22" class="">La valeur de l’attribut <code>href=“./style.css”</code> sert à indiquer le chemin relatif vers le fichier style.css</p></details></li></ul></details></li></ul><ul id="170061de-7758-4007-81bb-63d87ea736ac" class="toggle"><li><details open=""><summary>Exercice 2</summary><p id="8168056a-9864-4c9d-8a43-7b1b959f9cf3" class="">Consigne : Changer la couleur d’écran pour avoir une couleur pastel au choix</p><ul id="13e79065-e66e-4567-84bb-310f73991abc" class="toggle"><li><details open=""><summary>Correction : </summary><p id="d3fedee0-abff-48f3-96c2-a1f3b247fc86" class="">Dans le fichier style.css, sélectionner la balise la plus large possible : &lt;body&gt;</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="2004fa86-8b17-47a0-8484-ee8a2dbe5099" class="code"><code class="language-CSS">body {
+    background-color: #F9EAC3;
+}</code></pre><p id="848e2154-4cf3-4cce-8839-69e4c7de6882" class="">La couleur #F9EAC3 est un exemple, et correspond à un jaune clair pastel.</p></details></li></ul></details></li></ul><ul id="6243324e-e667-4cce-a18e-1f4697c9ac61" class="toggle"><li><details open=""><summary>Exercice 3</summary><p id="6ae5b540-9b13-45eb-9288-6360e1cbc776" class="">Consignes : Grâce aux sélecteurs et aux propriétés vus en cours, vous devez:</p><ul id="2f7673c1-9caf-461f-acd2-cb0b659fea57" class="bulleted-list"><li style="list-style-type:disc">Modifier la taille de la police</li></ul><ul id="6ff25694-90c0-46c2-8048-887b8c9780d6" class="bulleted-list"><li style="list-style-type:disc">Modifier la police en Verdana</li></ul><ul id="1577033a-9b1e-4fed-935f-7c5a0efd36dd" class="bulleted-list"><li style="list-style-type:disc">Centrer le texte</li></ul><ul id="aaaa3e94-1ba7-457c-b30e-667896ddc34c" class="bulleted-list"><li style="list-style-type:disc">Souligner le titre</li></ul><ul id="fc4e7395-19a0-406f-8f3b-0d9f40c028fb" class="bulleted-list"><li style="list-style-type:disc">Mettre la taille du titre à 2 em</li></ul><ul id="c5854383-e88f-4745-bc6b-dd668dd41c75" class="bulleted-list"><li style="list-style-type:disc">Supprimer la “décoration” des liens en appliquant la valeur “None” à la propriété</li></ul><ul id="66280ba7-0059-404b-ae64-c05ef88f31ee" class="toggle"><li><details open=""><summary>Correction : </summary><p id="c5683b94-faab-4786-97f0-5da35416392e" class="">Dans le fichier style.css :</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="07e76dbe-a5ba-47bb-8b32-e5467d0e3fae" class="code"><code class="language-CSS">body {
+    font-size: 1.2em;
+    font-family: Verdana;
+    text-align: center;
+}
+
+h1 {
+    text-decoration: underline;
+    font-size: 2em;
+}
+
+a {
+    text-decoration: none;
+}</code></pre></details></li></ul></details></li></ul><ul id="1aac247d-eb19-429b-a6fb-cf40015a4d1c" class="toggle"><li><details open=""><summary>Exercice 4</summary><p id="d16a358b-40fe-4e39-873b-48da762e2c70" class="">Consignes : Grâce aux sélecteurs et aux propriétés vues au cours, vous devez : </p><ul id="5ad02370-3eef-487c-9f8e-2c51dc829d59" class="bulleted-list"><li style="list-style-type:disc">Etendre l’élément header à 100% de la largeur de la page</li></ul><ul id="62d2cc4f-54e9-49f9-a872-b8d32dc4261d" class="bulleted-list"><li style="list-style-type:disc">la distance avec le haut de la page = 0 grâce à <code>top:</code></li></ul><ul id="886ffbaf-a4a5-4dda-b7bd-989de8a61877" class="bulleted-list"><li style="list-style-type:disc">la distance avec la coté gauche de la page = 0 grâce à  <code>left:</code></li></ul><ul id="53dbd7c2-5caa-4b85-bf3b-b87ffd0dcc4c" class="bulleted-list"><li style="list-style-type:disc">Fixer l’élément malgré le défilement grâce à <code>position: fixed;</code></li></ul><ul id="832033a9-85e9-4a1c-8021-d69257f363fc" class="toggle"><li><details open=""><summary>Correction :</summary><p id="47b2e73f-3cd4-45d5-9305-6d11580d4c16" class="">Dans le fichier style.css : </p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="29836e11-1134-4cc2-98f2-987b61ce9691" class="code"><code class="language-CSS">header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}</code></pre></details></li></ul></details></li></ul></details></li></ul><ul id="63b414d2-06d6-4009-811a-4e7e893009b1" class="toggle"><li><details open=""><summary>Garage - Exercices</summary><figure id="f5303f57-047a-43fc-9e75-2182a54ffb26"><div class="source"><a href="CSS%2082fa905e473046d4a9b89aaf6c5fc164/Acceuil.html">Accueil.html</a></div></figure><figure id="fff022af-4ad1-43f9-9bff-180cf90a59ff"><div class="source"><a href="CSS%2082fa905e473046d4a9b89aaf6c5fc164/Nouveaute.html">Nouveaute.html</a></div></figure><figure id="b658e941-6fba-40b2-a710-7438677bfac0"><div class="source"><a href="CSS%2082fa905e473046d4a9b89aaf6c5fc164/Occasions.html">Occasions.html</a></div></figure><figure id="879d9adc-5964-465e-b7fa-64fae4e010ed"><div class="source"><a href="CSS%2082fa905e473046d4a9b89aaf6c5fc164/Contact.html">Contact.html</a></div></figure><p id="0a091f20-c213-4fba-8248-901d13c6fee4" class="">Consignes:</p><ul id="936d98eb-2af3-488e-aafe-8bed3dd7235d" class="bulleted-list"><li style="list-style-type:disc">Créer un nouveau dossier dans votre dossier personnel dans lequel les 4 pages seront répertoriées. Nommer ce dossier “Garage”.</li></ul><ul id="c03e507c-d100-4529-a67c-c460cf2b17ae" class="bulleted-list"><li style="list-style-type:disc">Créer un fichier CSS nommé styles.css</li></ul><ul id="e7bddd7c-9269-447b-a9f4-ecd9f349c82d" class="bulleted-list"><li style="list-style-type:disc">Pour chaque page : <ul id="a99cbfb6-255b-4e6f-9078-09d0b16e1792" class="bulleted-list"><li style="list-style-type:circle">Lier la feuille de style CSS</li></ul><ul id="4a2f1450-b792-45ab-a94d-6ff6a470e7a9" class="bulleted-list"><li style="list-style-type:circle">Appliquer une couleur de fond</li></ul><ul id="f19abec2-7897-4aae-9eec-a7afbbfbcd86" class="bulleted-list"><li style="list-style-type:circle">Appliquer une police, une taille de police</li></ul><p id="a8c4c434-7cee-489b-826b-496aea010449" class="">Pour la page d’accueil :</p><figure id="eadce719-c9c2-405b-97f0-a1965c1bc55f" class="image"><a href="CSS%2082fa905e473046d4a9b89aaf6c5fc164/Accueil.png"><img style="width:1263.9921875px" src="CSS%2082fa905e473046d4a9b89aaf6c5fc164/Accueil.png"/></a></figure><p id="6817e1de-29bb-4219-a3d5-4a01f36e34e9" class="">
+</p><p id="03546f45-02f5-4e07-8b45-7cf4e58f401a" class="">
+</p><p id="3ef1a608-9f33-469a-b680-d17e987d1f17" class="">
+</p></li></ul></details></li></ul><p id="18512a65-5f56-8055-bec9-c7612f8e86ab" class="">Crée le CSS dans un fichier que tu nommeras style.css dans un dossier intitulé “exercices_pratiques”. Crée un sous-dossier “partie_1”, dans lequel tu créeras index.html et ta feuille de styles.</p><ul id="18512a65-5f56-8071-9c14-d60038aefc7f" class="toggle"><li><details open=""><summary>HTML à utiliser dans la partie 1.</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="18512a65-5f56-8033-b965-c7c70ee02b08" class="code"><code class="language-HTML">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;fr&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Le Jardin Enchanté&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header&gt;
+        &lt;h1&gt;Le Jardin Enchanté&lt;/h1&gt;
+        &lt;p&gt;Des fleurs pour chaque moment spécial&lt;/p&gt;
+    &lt;/header&gt;
+    &lt;main&gt;
+        &lt;section&gt;
+            &lt;h2&gt;Nos Services&lt;/h2&gt;
+            &lt;p&gt;Nous proposons des bouquets personnalisés, des arrangements pour événements et la livraison à domicile.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;section&gt;
+            &lt;h2&gt;Nos Best-Sellers&lt;/h2&gt;
+            &lt;ul&gt;
+                &lt;li&gt;Roses rouges&lt;/li&gt;
+                &lt;li&gt;Orchidées blanches&lt;/li&gt;
+                &lt;li&gt;Tulipes colorées&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/section&gt;
+        &lt;footer&gt;
+            &lt;p&gt;Contactez-nous au 123-456-7890 ou visitez-nous à Rue des Fleurs, 1000 Bruxelles.&lt;/p&gt;
+        &lt;/footer&gt;
+    &lt;/main&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre></details></li></ul><ul id="18512a65-5f56-8014-8296-d2aeaba8644d" class="toggle"><li><details open=""><summary>Exercice 1</summary><p id="18512a65-5f56-80f3-9d9a-ff6061e390a2" class="">Change la couleur du texte dans le <code>&lt;header&gt;</code> en une couleur de ton choix.</p><ul id="18512a65-5f56-80e3-8324-cbd5fce9815c" class="toggle"><li><details open=""><summary>Correction</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="18512a65-5f56-8077-9eff-f63d98bfb0c1" class="code"><code class="language-CSS">header {
+	color: lightblue;
+}</code></pre></details></li></ul></details></li></ul><ul id="18512a65-5f56-809d-9321-f3f3fb4857cd" class="toggle"><li><details open=""><summary>Exercice 2</summary><p id="18512a65-5f56-8071-896f-f597d2e0f0d7" class="">Augmente la taille de la police du titre principal <code>&lt;h1&gt;</code> à 36 pixels.</p><ul id="18512a65-5f56-80d1-ae78-ea960e6d560a" class="toggle"><li><details open=""><summary>Correction</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="18512a65-5f56-80d8-9c39-e9af3a4645c5" class="code"><code class="language-CSS">h1 {
+    font-size: 36px;
+}</code></pre></details></li></ul></details></li></ul><ul id="18512a65-5f56-8038-b2d2-fef267f85dd4" class="toggle"><li><details open=""><summary>Exercice 3</summary><p id="18512a65-5f56-8058-8249-eaa29d84b499" class="">Change la police du texte pour le <code>&lt;p&gt;</code> du <code>&lt;header&gt;</code> en <code>Arial</code>.</p><ul id="18512a65-5f56-802b-a92f-db225987918a" class="toggle"><li><details open=""><summary>Correction</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="18512a65-5f56-8018-9142-c8430b824fd2" class="code"><code class="language-CSS">header p {
+	font-family: Arial;
+}</code></pre></details></li></ul></details></li></ul><ul id="18512a65-5f56-80b2-934b-cbce86e5f331" class="toggle"><li><details open=""><summary>Exercice 4</summary><p id="18512a65-5f56-8092-a256-e05969240b7c" class="">Centre le texte du <code>&lt;header&gt;</code> et des titres <code>&lt;h2&gt;</code> avec la propriété <code>text-align</code>.</p><ul id="18512a65-5f56-80d9-89d8-db545401958e" class="toggle"><li><details open=""><summary>Correction</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="18512a65-5f56-807c-9c53-e2fbcf7525ec" class="code"><code class="language-CSS">header, h2 {
+	text-align: center;
+}</code></pre></details></li></ul></details></li></ul><ul id="18512a65-5f56-8011-bf05-caa5cfb79629" class="toggle"><li><details open=""><summary>Exercice 5</summary><p id="18512a65-5f56-8047-9cd3-c103d4fdf232" class="">Ajoute un espace de 20 pixels entre le <code>&lt;header&gt;</code> et le reste de la page en utilisant <code>margin</code>.</p><ul id="18512a65-5f56-80d8-b304-f2ccb08aecc1" class="toggle"><li><details open=""><summary>Correction</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="18512a65-5f56-80fb-bf02-d7bc7c719d9c" class="code"><code class="language-CSS">header {
+	margin-bottom: 20px;
+}</code></pre></details></li></ul></details></li></ul><ul id="18512a65-5f56-80ad-8de4-c0928b204724" class="toggle"><li><details open=""><summary>Exercice 6</summary><p id="18512a65-5f56-80b0-b3ae-d9e9dc382913" class="">Ajoute un espace intérieur de 10 pixels dans le <code>&lt;footer&gt;</code> grâce à la propriété <code>padding</code>.</p><ul id="18512a65-5f56-8026-bea6-ffbe89967307" class="toggle"><li><details open=""><summary>Correction</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="18512a65-5f56-80ee-ab67-eb5b2cfef095" class="code"><code class="language-CSS">footer {
+	padding: 10px;
+}</code></pre></details></li></ul></details></li></ul><ul id="18512a65-5f56-8010-90f2-c3842dc55261" class="toggle"><li><details open=""><summary>Exercice 7</summary><p id="18512a65-5f56-8043-ac07-f3c1e509a796" class="">Ajoute une bordure noire solide de 2 pixels autour du <code>&lt;header&gt;</code>.</p><ul id="18512a65-5f56-8086-adbf-fe67b823bed2" class="toggle"><li><details open=""><summary>Correction</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="18512a65-5f56-8057-af91-d77cce40ff2e" class="code"><code class="language-CSS">header {
+	border: 2px solid black;
+}</code></pre></details></li></ul></details></li></ul><ul id="18512a65-5f56-8031-8f81-ec9215853ba8" class="toggle"><li><details open=""><summary>Exercice 8</summary><p id="18512a65-5f56-80d5-8da2-dd68b5068eb4" class="">Applique une couleur de fond douce au <code>&lt;main&gt;</code> pour le faire ressortir.</p><ul id="18512a65-5f56-806d-b712-e0d06d39f53d" class="toggle"><li><details open=""><summary>Correction</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="18512a65-5f56-804d-a9fc-cacaef8b2c69" class="code"><code class="language-CSS">main {
+	background-color: #a5fcfc;
+}</code></pre></details></li></ul></details></li></ul><ul id="18512a65-5f56-80e5-b468-eac06b6e14cb" class="toggle"><li><details open=""><summary>Exercice 9</summary><p id="18512a65-5f56-80c7-ba55-ea84476f54e6" class="">Limite la largeur du <code>&lt;header&gt;</code> à 80% de la largeur de la fenêtre.</p><ul id="18512a65-5f56-807b-912c-c3861fde13b9" class="toggle"><li><details open=""><summary>Correction</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="18512a65-5f56-802d-b8fc-d6e1a1a14959" class="code"><code class="language-CSS">header {
+	width: 80%;
+}</code></pre></details></li></ul></details></li></ul><ul id="18512a65-5f56-80d1-97a7-c653f31dff12" class="toggle"><li><details open=""><summary>Exercice 10</summary><p id="18512a65-5f56-8067-86a4-d340f0559fbd" class="">Fixe une hauteur minimale de 100 pixels pour le <code>&lt;footer&gt;</code>.</p><ul id="18512a65-5f56-8010-a561-c312c0380288" class="toggle"><li><details open=""><summary>Correction</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="18512a65-5f56-803d-9323-d8eccb226c3e" class="code"><code class="language-CSS">footer {
+	min-height: 100px;
+}</code></pre></details></li></ul></details></li></ul><ul id="18512a65-5f56-8014-9dd2-df482f0d162b" class="toggle"><li><details open=""><summary>Exercice 11</summary><p id="18512a65-5f56-809b-8a09-d5916ebb28d0" class="">Applique une couleur de fond, une bordure et un <code>padding</code> au premier <code>&lt;section&gt;</code>.</p><ul id="18512a65-5f56-80fe-b783-e8051d1f29c1" class="toggle"><li><details open=""><summary>Correction</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="18512a65-5f56-8098-8f75-d5459ac183b3" class="code"><code class="language-CSS">section:first-of-type {
+	background-color: #e0f7fa;
+	border: 1px solid #ccc;
+	padding: 10px;
+}</code></pre></details></li></ul></details></li></ul><ul id="18512a65-5f56-80f6-bd00-d85861af9d6f" class="toggle"><li><details open=""><summary>Exercice 12</summary><p id="18512a65-5f56-8000-ade3-d6e76f4f31d1" class="">Réduis l’espace entre les éléments de la liste <code>&lt;ul&gt;</code> et ses items <code>&lt;li&gt;</code> en ajustant <code>padding</code> et <code>margin</code>.</p><ul id="18512a65-5f56-80ad-a94a-c545385685a8" class="toggle"><li><details open=""><summary>Correction</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="18512a65-5f56-80ab-8b1e-c733cb12e112" class="code"><code class="language-CSS">ul {
+	padding: 0;
+	margin: 0;
+}
+
+ul li {
+	margin: 5px 0;
+}</code></pre></details></li></ul></details></li></ul><ul id="18512a65-5f56-80b8-9d65-ca04d200fe26" class="toggle"><li><details open=""><summary>Exercice 13</summary><p id="18512a65-5f56-8071-b3de-f496db207189" class="">Applique une police différente, une couleur et un alignement centré au <code>&lt;h2&gt;</code> du deuxième <code>&lt;section&gt;</code>.</p><ul id="18512a65-5f56-8041-bbb1-f1f3251f952b" class="toggle"><li><details open=""><summary>Correction</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="18512a65-5f56-80af-82ee-e958d886d7b6" class="code"><code class="language-CSS">section:nth-of-type(2) h2 {
+	font-family: &quot;Georgia&quot;, serif;
+	color: green;
+	text-align: center;
+}</code></pre></details></li></ul></details></li></ul><ul id="18512a65-5f56-80ef-a455-de2dd86ccf51" class="toggle"><li><details open=""><summary>Exercice 14</summary><p id="18512a65-5f56-8033-acf3-c6aade603ec9" class="">Donne une largeur fixe de 300 pixels et une hauteur fixe de 200 pixels au deuxième <code>&lt;section&gt;</code>.</p><ul id="18512a65-5f56-8019-9ada-c7cd80262568" class="toggle"><li><details open=""><summary>Correction</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="18512a65-5f56-80f3-9f44-cccb3f808827" class="code"><code class="language-CSS">section:nth-of-type(2) {
+	width: 300px;
+	height: 200px;
+	margin: 0 auto; /* Centrer horizontalement */
+}</code></pre></details></li></ul></details></li></ul><ul id="18512a65-5f56-8007-afe5-d07b67201228" class="toggle"><li><details open=""><summary>Exercice 15</summary><p id="18512a65-5f56-807f-a7aa-e1fbd1b99cb2" class="">Applique un style unique à chaque élément :</p><ul id="18512a65-5f56-80a1-a5bc-dbeaa0d1d0d9" class="bulleted-list"><li style="list-style-type:disc">Le <code>&lt;header&gt;</code> doit avoir une bordure et une couleur de fond.</li></ul><ul id="18512a65-5f56-80d0-b050-d97f4cf8eeb8" class="bulleted-list"><li style="list-style-type:disc">Les sections doivent être centrées et avoir une marge extérieure.</li></ul><ul id="18512a65-5f56-80c2-b4ab-d47b6f24b094" class="bulleted-list"><li style="list-style-type:disc">La liste doit être stylisée avec une couleur de texte et une police différente.</li></ul><ul id="18512a65-5f56-8044-ba6b-e9e5555b9f75" class="toggle"><li><details open=""><summary>Correction</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="18512a65-5f56-802e-8d30-ce9fbdd23f2a" class="code"><code class="language-CSS">header {
+	background-color: #ffebcd;
+	border: 2px solid #8b4513;
+}
+
+section {
+	text-align: center;
+	margin: 20px;
+}
+
+ul {
+	font-family: &quot;Courier New&quot;, monospace;
+	color: #555;
+}</code></pre></details></li></ul></details></li></ul><p id="18512a65-5f56-8092-88fc-e1ee7fd4de11" class="">Crée un sous-dossier “partie_2” dans ton dossier exercices_pratiques/, dans lequel tu créeras index.html et ta nouvelle feuille de styles. </p><ul id="18512a65-5f56-80a2-859a-d7d4626817da" class="toggle"><li><details open=""><summary>HTML à utiliser dans la partie 2</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="18512a65-5f56-801b-af91-d19316979ff7" class="code"><code class="language-HTML">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;fr&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Le Jardin Enchanté&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header&gt;
+        &lt;h1&gt;Le Jardin Enchanté&lt;/h1&gt;
+        &lt;p&gt;Des fleurs pour chaque moment spécial&lt;/p&gt;
+    &lt;/header&gt;
+    &lt;nav&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href=&quot;#services&quot;&gt;Services&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#produits&quot;&gt;Produits&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#temoignages&quot;&gt;Témoignages&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#contact&quot;&gt;Contact&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+    &lt;main&gt;
+        &lt;section id=&quot;services&quot;&gt;
+            &lt;h2&gt;Nos Services&lt;/h2&gt;
+            &lt;p&gt;Nous offrons une variété de services pour répondre à tous vos besoins floraux :&lt;/p&gt;
+            &lt;ul&gt;
+                &lt;li&gt;Création de bouquets sur mesure&lt;/li&gt;
+                &lt;li&gt;Décorations pour mariages et événements&lt;/li&gt;
+                &lt;li&gt;Livraison rapide à domicile&lt;/li&gt;
+                &lt;li&gt;Abonnements floraux hebdomadaires&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/section&gt;
+        &lt;section id=&quot;produits&quot;&gt;
+            &lt;h2&gt;Nos Best-Sellers&lt;/h2&gt;
+            &lt;div&gt;
+                &lt;article&gt;
+                    &lt;h3&gt;Bouquet de Roses&lt;/h3&gt;
+                    &lt;p&gt;Un mélange élégant de roses rouges et blanches, parfait pour exprimer vos sentiments.&lt;/p&gt;
+                &lt;/article&gt;
+                &lt;article&gt;
+                    &lt;h3&gt;Orchidées Blanches&lt;/h3&gt;
+                    &lt;p&gt;Un symbole de beauté et d’élégance, idéal pour toutes les occasions.&lt;/p&gt;
+                &lt;/article&gt;
+                &lt;article&gt;
+                    &lt;h3&gt;Tulipes Colorées&lt;/h3&gt;
+                    &lt;p&gt;Une explosion de couleurs pour illuminer votre journée.&lt;/p&gt;
+                &lt;/article&gt;
+            &lt;/div&gt;
+        &lt;/section&gt;
+        &lt;section id=&quot;temoignages&quot;&gt;
+            &lt;h2&gt;Ce que disent nos clients&lt;/h2&gt;
+            &lt;blockquote&gt;
+                &lt;p&gt;&quot;Les fleurs étaient magnifiques et ont illuminé notre mariage. Merci beaucoup !&quot;&lt;/p&gt;
+                &lt;cite&gt;- Claire et Julien&lt;/cite&gt;
+            &lt;/blockquote&gt;
+            &lt;blockquote&gt;
+                &lt;p&gt;&quot;Service rapide et bouquet magnifique. Je recommande vivement cette boutique.&quot;&lt;/p&gt;
+                &lt;cite&gt;- Sophie&lt;/cite&gt;
+            &lt;/blockquote&gt;
+        &lt;/section&gt;
+        &lt;section id=&quot;contact&quot;&gt;
+            &lt;h2&gt;Contactez-nous&lt;/h2&gt;
+            &lt;p&gt;Vous avez une question ? Une demande spéciale ? N&#x27;hésitez pas à nous contacter :&lt;/p&gt;
+            &lt;address&gt;
+                &lt;p&gt;📍 Rue des Fleurs, 1000 Bruxelles&lt;/p&gt;
+                &lt;p&gt;📞 123-456-7890&lt;/p&gt;
+                &lt;p&gt;📧 contact@lejardinenchante.com&lt;/p&gt;
+            &lt;/address&gt;
+        &lt;/section&gt;
+    &lt;/main&gt;
+    &lt;footer&gt;
+        &lt;p&gt;&amp;copy; 2025 Le Jardin Enchanté. Tous droits réservés.&lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre></details></li></ul><ul id="18512a65-5f56-806d-b024-d9ab1e77c9d0" class="toggle"><li><details open=""><summary>Exercice 16</summary><p id="18512a65-5f56-80ee-98ba-f09d019d9eb6" class="">Change la couleur des liens dans la barre de navigation <code>&lt;nav&gt;</code>. Donne-leur une couleur au repos et une autre lorsqu’ils sont survolés avec la souris (utilise le pseudo-sélecteur <code>:hover</code>).</p><ul id="18512a65-5f56-8076-a8e7-db87393ffc5e" class="toggle"><li><details open=""><summary>Correction</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="18512a65-5f56-80c6-952c-c592be68f5cf" class="code"><code class="language-CSS">nav a {
+	color: #4CAF50; /* Couleur au repos */
+	text-decoration: none;
+}
+
+nav a:hover {
+	color: #FF5733; /* Couleur au survol */
+}</code></pre></details></li></ul></details></li></ul><ul id="18512a65-5f56-804f-bbe9-f9e611cd6d5c" class="toggle"><li><details open=""><summary>Exercice 17</summary><p id="18512a65-5f56-801e-8c35-cd00f55f6a61" class="">Ajoute du <code>padding</code> à la barre de navigation pour lui donner un peu de respiration et applique une couleur de fond.</p><ul id="18512a65-5f56-80ed-a638-c865802abdc1" class="toggle"><li><details open=""><summary>Correction</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="18512a65-5f56-80a5-8fc0-def61671afb9" class="code"><code class="language-CSS">nav {
+	padding: 10px;
+	background-color: #f2f2f2;
+}</code></pre></details></li></ul></details></li></ul><ul id="18512a65-5f56-8036-a0ae-e004e794c0f9" class="toggle"><li><details open=""><summary>Exercice 18</summary><p id="18512a65-5f56-8001-b713-cbe48fa62327" class="">Centre tous les titres (<code>&lt;h2&gt;</code> et <code>&lt;h3&gt;</code>) des sections.</p><ul id="18512a65-5f56-80f9-875a-dd0a67d8cb88" class="toggle"><li><details open=""><summary>Correction</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="18512a65-5f56-80d1-8339-f2793e2a7500" class="code"><code class="language-CSS">h2, h3 {
+	text-align: center;
+}</code></pre></details></li></ul></details></li></ul><ul id="18512a65-5f56-80dd-9ef7-de252c6086a4" class="toggle"><li><details open=""><summary>Exercice 19</summary><p id="18512a65-5f56-80a6-a94a-eb6b841a69df" class="">Ajoute une couleur de fond différente pour chaque article dans la section “Nos Best-Sellers”.</p><ul id="18512a65-5f56-8041-a8d0-ecda869d90b3" class="toggle"><li><details open=""><summary>Correction</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="18512a65-5f56-80e6-8388-ff87727d15db" class="code"><code class="language-CSS">#produits article:nth-child(1) {
+	background-color: #f8d7da;
+}
+#produits article:nth-child(2) {
+	background-color: #d4edda;
+}
+#produits article:nth-child(3) {
+	background-color: #d1ecf1;
+}</code></pre></details></li></ul></details></li></ul><ul id="18512a65-5f56-80fa-8a41-c16c952b4184" class="toggle"><li><details open=""><summary>Exercice 20</summary><p id="18512a65-5f56-80c0-a45d-c486d74ba1d1" class="">Applique une bordure autour de chaque article dans la section “Nos Best-Sellers” avec une épaisseur de 2 pixels et une couleur de ton choix.</p><ul id="18512a65-5f56-8022-a822-f05629fff36d" class="toggle"><li><details open=""><summary>Correction</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="18512a65-5f56-80ff-a338-f72e4d7923d7" class="code"><code class="language-CSS">#produits article {
+	border: 2px solid #ccc;
+	padding: 10px;
+	margin: 10px;
+}</code></pre></details></li></ul></details></li></ul><ul id="18512a65-5f56-80cc-adc4-d9fc27465e3d" class="toggle"><li><details open=""><summary>Exercice 21</summary><p id="18512a65-5f56-80a5-b09f-eeea1525c85d" class="">Limite la largeur de chaque article à 250 pixels et centre-les horizontalement dans la section.</p><ul id="18512a65-5f56-809d-8682-f2372c5a22b3" class="toggle"><li><details open=""><summary>Correction</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="18512a65-5f56-8088-9434-e9fa1f2f2636" class="code"><code class="language-CSS">#produits article {
+	width: 250px;
+	margin: 10px auto;
+}</code></pre></details></li></ul></details></li></ul><ul id="18512a65-5f56-800e-a1f7-d50ff73be98b" class="toggle"><li><details open=""><summary>Exercice 22</summary><p id="18512a65-5f56-80c8-b2de-d52e4aeaff6d" class="">Ajoute un espacement (<code>margin</code> ou <code>padding</code>) entre les éléments de la liste des services et change la couleur du texte des <code>&lt;li&gt;</code>.</p><ul id="18512a65-5f56-8066-8fe9-c0c41cbc3511" class="toggle"><li><details open=""><summary>Correction</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="18512a65-5f56-805c-8e96-f3d5b91ef9ad" class="code"><code class="language-CSS">#services ul {
+	padding: 10px;
+	margin: 10px 0;
+}
+#services li {
+	margin-bottom: 5px;
+	color: #333;
+}</code></pre></details></li></ul></details></li></ul><ul id="18512a65-5f56-8055-937d-f4cdcd7804cd" class="toggle"><li><details open=""><summary>Exercice 23</summary><p id="18512a65-5f56-800b-bed5-c63c8175d693" class="">Donne une hauteur fixe de 150 pixels au <code>&lt;header&gt;</code>, puis centre le texte verticalement à l’intérieur avec <code>padding</code>.</p><ul id="18512a65-5f56-803c-b3c1-d46efc2445a5" class="toggle"><li><details open=""><summary>Correction</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="18512a65-5f56-8045-afc3-ebc500b06b11" class="code"><code class="language-CSS">header {
+	height: 150px;
+	padding: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}</code></pre></details></li></ul></details></li></ul><ul id="18512a65-5f56-8077-85bd-ee911d2e23fa" class="toggle"><li><details open=""><summary>Exercice 24</summary><p id="18512a65-5f56-803a-a8d1-cc3f1f167e3b" class="">Ajoute une marge extérieure <code>margin</code> de 40 pixels entre chaque <code>&lt;section&gt;</code>.</p><ul id="18512a65-5f56-8075-8f01-f65ac442adfd" class="toggle"><li><details open=""><summary>Correction</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="18512a65-5f56-80d9-a5d6-fc16dbb4073b" class="code"><code class="language-CSS">section {
+	margin: 40px 0;
+}</code></pre></details></li></ul></details></li></ul><ul id="18512a65-5f56-80d3-b2c2-f151c239c5bb" class="toggle"><li><details open=""><summary>Exercice 25</summary><p id="18512a65-5f56-8059-ad25-dba6995736cd" class="">Applique un style spécial aux citations <code>&lt;blockquote&gt;</code> :</p><ul id="18512a65-5f56-8034-aabc-d6dde0ffa653" class="bulleted-list"><li style="list-style-type:disc">Change la couleur du texte,</li></ul><ul id="18512a65-5f56-80d5-8238-e87c6dd0e35f" class="bulleted-list"><li style="list-style-type:disc">Ajoute une bordure gauche,</li></ul><ul id="18512a65-5f56-807b-ac76-ddb963f71276" class="bulleted-list"><li style="list-style-type:disc">Ajoute un espacement à gauche (<code>padding</code>).</li></ul><ul id="18512a65-5f56-803e-bfb3-e73ae5e74abd" class="toggle"><li><details open=""><summary>Correction</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="18512a65-5f56-8036-a910-fbab9f03451f" class="code"><code class="language-CSS">blockquote {
+	color: #555;
+	border-left: 4px solid #ccc;
+	padding-left: 10px;
+	margin-left: 10px;
+}</code></pre></details></li></ul></details></li></ul><ul id="18512a65-5f56-8075-ae57-c7e5555ffc74" class="toggle"><li><details open=""><summary>Exercice 26</summary><p id="18512a65-5f56-8075-b5bf-dff327b1d88a" class="">Change la couleur de fond et la couleur du texte du <code>&lt;footer&gt;</code>, et centre le texte à l’intérieur.</p><ul id="18512a65-5f56-8076-8163-e3e95cfb60bc" class="toggle"><li><details open=""><summary>Correction</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="18512a65-5f56-800d-ac8e-dce507bbc905" class="code"><code class="language-CSS">footer {
+	background-color: #4CAF50;
+	color: white;
+	text-align: center;
+	padding: 20px;
+}</code></pre></details></li></ul></details></li></ul><ul id="18512a65-5f56-80bc-be1b-e24644f2d868" class="toggle"><li><details open=""><summary>Exercice 27</summary><p id="18512a65-5f56-8074-9a1c-e3097ced162f" class="">Donne une largeur fixe à l’élément <code>&lt;address&gt;</code> et centre son contenu horizontalement.</p><ul id="18512a65-5f56-806d-8764-fe3fe501d014" class="toggle"><li><details open=""><summary>Correction</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="18512a65-5f56-80e7-81e0-d3e322caca36" class="code"><code class="language-CSS">address {
+	width: 300px;
+	margin: 0 auto;
+	text-align: center;
+}</code></pre></details></li></ul></details></li></ul><ul id="18512a65-5f56-8032-a551-e28369d84647" class="toggle"><li><details open=""><summary>Exercice 28</summary><p id="18512a65-5f56-80e1-9f0a-f1ed05c7c6d7" class="">Change la taille de la police du titre <code>&lt;h1&gt;</code> dans le <code>&lt;header&gt;</code> pour qu’il soit plus grand et plus visible. Ajoute aussi une couleur au texte.</p><ul id="18512a65-5f56-8099-9717-ee6d6b7fb923" class="toggle"><li><details open=""><summary>Correction</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="18512a65-5f56-8065-8423-e88dd20262be" class="code"><code class="language-CSS">h1 {
+	font-size: 48px;
+	color: #4CAF50;
+}</code></pre></details></li></ul></details></li></ul><ul id="18512a65-5f56-80b0-b4b9-fda9b3979845" class="toggle"><li><details open=""><summary>Exercice 29</summary><p id="18512a65-5f56-80f3-b14b-ddb2d0cc84c6" class="">Modifie la liste dans <code>&lt;nav&gt;</code> pour qu’elle apparaisse en ligne horizontale au lieu de verticale, avec un espacement entre les items (utilise <code>margin</code> ou <code>padding</code>).</p><ul id="18512a65-5f56-8015-9996-c5900f5dfe60" class="toggle"><li><details open=""><summary>Correction</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="18512a65-5f56-8016-9398-e7112966b2c9" class="code"><code class="language-CSS">nav ul {
+	display: flex;
+	justify-content: center;
+	padding: 0;
+	list-style: none;
+}
+nav li {
+	margin: 0 15px;
+}</code></pre></details></li></ul></details></li></ul><ul id="18512a65-5f56-80d9-9f49-fc7029812874" class="toggle"><li><details open=""><summary>Exercice 30</summary><p id="18512a65-5f56-80d5-a374-fead21243c13" class="">Applique une combinaison de propriétés pour styliser entièrement une section (par exemple, “Nos Best-Sellers”) :</p><ul id="18512a65-5f56-80dd-89b0-ed3cf9865b16" class="bulleted-list"><li style="list-style-type:disc">Une couleur de fond,</li></ul><ul id="18512a65-5f56-8075-b828-c5436b940d15" class="bulleted-list"><li style="list-style-type:disc">Des bordures autour des articles,</li></ul><ul id="18512a65-5f56-804c-b249-d3ed7ddcb4d2" class="bulleted-list"><li style="list-style-type:disc">Une largeur fixe et un alignement centré,</li></ul><ul id="18512a65-5f56-80a3-a6fa-c5e0a183003a" class="bulleted-list"><li style="list-style-type:disc">Des marges entre les articles.</li></ul><ul id="18512a65-5f56-80b3-8721-fca971a220da" class="toggle"><li><details open=""><summary>Correction</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="18512a65-5f56-8056-99f5-ff6625b865bc" class="code"><code class="language-CSS">#produits {
+	background-color: #fff3cd;
+	padding: 20px;
+	border: 1px solid #ffeeba;
+	border-radius: 10px;
+}</code></pre></details></li></ul></details></li></ul><p id="264a4e5e-4542-4dcc-9124-29cf6bc8b9f2" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
